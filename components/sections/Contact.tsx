@@ -109,17 +109,3 @@ export default function Contact() {
     </section>
   );
 }
-      {/* Floating orbs in background */}
-      <motion.div
-        className="absolute top-1/4 left-10 w-32 h-32 bg-[#00d9ff]/10 rounded-full blur-2xl"
-        animate={{ y: [0, 30, 0], x: [0, 20, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl"
-        animate={{ y: [0, -30, 0], x: [0, -20, 0] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-    </section>
-  );
-}
