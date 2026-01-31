@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhi Khatiwada — Front-End Designer</title>
+  <meta name="description" content="Abhi Khatiwada, Front-End Designer. Designing bold, responsive experiences with meticulous craft." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #ffffff;
+      --muted: #888888;
+      --accent: #00d9ff;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1400px, 95vw);
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 0;
+      background: rgba(15, 15, 15, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 140px 0 100px;
+      margin-top: 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 10vw, 6.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .hero .title-accent {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: #00b8d4;
+    }
+
+    /* Section padding */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 60px;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 217, 255, 0.05));
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      transition: transform 0.4s ease, border-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .gallery-item h3 {
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .project-card {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-image {
+      aspect-ratio: 16/10;
+      background: rgba(0, 217, 255, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin: 80px 0;
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat {
+      display: grid;
+      gap: 8px;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-item {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      border-color: var(--accent);
+      background: rgba(0, 217, 255, 0.05);
+    }
+
+    .skill-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .skill-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 20px;
+      }
+
+      .hero {
+        padding: 100px 0 80px;
+      }
+
+      .section-title {
+        margin-bottom: 40px;
+      }
+
+      .gallery {
+        gap: 16px;
+      }
+
+      .projects-grid {
+        gap: 24px;
+      }
+
+      .stats {
+        gap: 24px;
+      }
+
+      .cta-group {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">ABHI</div>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>
+        Front-End Designer<br />
+        <span class="title-accent">Crafting Digital Experiences</span>
+      </h1>
+      <p>
+        I design and build fast, responsive, and immersive web experiences. Bold typography, meticulous attention to detail, and performance-first code.
+      </p>
+      <div class="cta-group">
+        <button class="btn btn-primary">View Work</button>
+        <button class="btn">Get In Touch</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title reveal">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-image"></div>
+          <h3>Neon Commerce</h3>
+          <p>High-converting e-commerce platform with bold motion design and seamless checkout flow.</p>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-image"></div>
+          <h3>Studio Pulse</h3>
+          <p>Creative agency portfolio featuring scroll-driven animations and responsive grid layouts.</p>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-image"></div>
+          <h3>Flowboard</h3>
+          <p>SaaS dashboard with custom UI components and accessibility-first design system.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat-value">35+</div>
+          <div class="stat-label">Projects Shipped</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-value">6yrs</div>
+          <div class="stat-label">Designing & Building</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-value">0.9s</div>
+          <div class="stat-label">FCP Performance</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-value">15+</div>
+          <div class="stat-label">Brands & Startups</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title reveal">About</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 60px;">
+        <div class="reveal">
+          <p style="font-size: 1.1rem; line-height: 1.8;">
+            I've been designing and building digital experiences since 2019. My focus: clean interfaces, responsive systems, and lightning-fast performance.
+          </p>
+          <p style="color: var(--muted); margin-top: 20px;">
+            Based in Kathmandu. Available for full-time roles and freelance projects.
+          </p>
+        </div>
+        <div class="reveal">
+          <p style="font-size: 1.1rem; line-height: 1.8;">
+            I combine UI/UX strategy with performant front-end code. Whether it's a landing page or a full product, I prioritize clarity, emotion, and speed.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="section-title" style="font-size: 2rem; margin-top: 80px; margin-bottom: 40px;">Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-item reveal">
+          <strong>HTML5 & CSS</strong>
+          <p>Semantic markup, modern layouts, responsive design systems.</p>
+        </div>
+        <div class="skill-item reveal">
+          <strong>JavaScript</strong>
+          <p>Animations, interactivity, scroll effects, DOM manipulation.</p>
+        </div>
+        <div class="skill-item reveal">
+          <strong>React</strong>
+          <p>Component architecture, state management, performance optimization.</p>
+        </div>
+        <div class="skill-item reveal">
+          <strong>Design Tools</strong>
+          <p>Figma, prototyping, design systems, collaboration.</p>
+        </div>
+        <div class="skill-item reveal">
+          <strong>Performance</strong>
+          <p>Core Web Vitals, optimization, lighthouse audits.</p>
+        </div>
+        <div class="skill-item reveal">
+          <strong>Accessibility</strong>
+          <p>WCAG compliance, semantic HTML, inclusive design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="reveal">Let's Build Something Great</h2>
+      <p class="reveal">
+        I'm always interested in hearing about new projects and opportunities.
+      </p>
+      <div class="social-links reveal">
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="mailto:hello@abhikhatiwada.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Abhi Khatiwada. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+
+    // Nav active link
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
