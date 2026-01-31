@@ -36,8 +36,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: false }}\n          transition={{ duration: 0.8 }}
         >
           <motion.h2
             className="text-5xl md:text-6xl font-bold mb-6"
