@@ -19,9 +19,9 @@ export default function Contact() {
   }
 
   const contactInfo = [
-    { icon: <Mail />, label: 'Email', value: 'hello@example.com', href: 'mailto:hello@example.com' },
+    { icon: <Mail />, label: 'Email', value: 'khatiwadaabhi123@gmail.com', href: 'mailto:khatiwadaabhi123@gmail.com' },
     { icon: <Phone />, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: <MapPin />, label: 'Location', value: 'San Francisco, CA', href: '#' },
+    { icon: <MapPin />, label: 'Location', value: 'Hattiban, Lalitpur', href: '#' },
   ]
 
   const socialLinks = [
