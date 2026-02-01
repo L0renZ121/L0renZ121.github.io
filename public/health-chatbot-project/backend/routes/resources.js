@@ -120,8 +120,9 @@ Keep it concise and encouraging. Format as plain text, no bullet points.`;
       }).slice(0, 3)
     });
   } catch (error) {
-    console.error('AI Recommendation Error:', error);
-    res.status(500).json({ error: 'Unable to generate recommendation' });
+    console.error('Ollama Recommendation Error:', error.message);
+    console.warn('⚠️  Ollama is not running at ' + OLLAMA_URL);
+    res.status(503).json({ error: 'AI service unavailable. Please make sure Ollama is running.' });
   }
 });
 
