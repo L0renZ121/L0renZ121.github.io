@@ -8,6 +8,14 @@ export default function LoadingScreen() {
   const [zoomPhase, setZoomPhase] = useState(false)
 
   useEffect(() => {
+    // Scroll to top and prevent hash-based navigation during loading
+    window.scrollTo(0, 0)
+    
+    // Disable hash-based scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+
     // Start zoom phase after initial animation
     const zoomTimer = setTimeout(() => {
       setZoomPhase(true)
@@ -16,6 +24,10 @@ export default function LoadingScreen() {
     // Complete loading
     const completeTimer = setTimeout(() => {
       setIsLoading(false)
+      // Re-enable scroll restoration after loading
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'auto'
+      }
     }, 3500)
 
     return () => {
@@ -129,32 +141,11 @@ export default function LoadingScreen() {
                 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                Crafting Digital Excellence
+                Abhi Khatiwada
               </motion.p>
             </motion.div>
 
-            {/* Loading Bar */}
-            <motion.div
-              className="w-full max-w-xs mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ 
-                opacity: zoomPhase ? 0 : 1, 
-                y: 0 
-              }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"
-                  initial={{ width: '0%' }}
-                  animate={{ width: zoomPhase ? '100%' : '75%' }}
-                  transition={{ 
-                    duration: 2.0, 
-                    ease: 'easeInOut',
-                  }}
-                />
-              </div>
-            </motion.div>
+            {/* Removed Loading Bar */}
           </div>
 
           {/* Zoom tunnel effect - creates the illusion of entering the gap */}

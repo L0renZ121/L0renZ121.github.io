@@ -18,6 +18,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('scrollRestoration' in window.history) {
+                window.history.scrollRestoration = 'manual';
+              }
+              window.scrollTo(0, 0);
+            `,
+          }}
+        />
+      </head>
       <body className={`${inter.className} bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-x-hidden`}>
         <LoadingScreen />
         <div className="page-transition">
