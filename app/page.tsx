@@ -1,15 +1,25 @@
-import Hero from '@/components/sections/Hero';
-import Work from '@/components/sections/Work';
-import About from '@/components/sections/About';
-import Contact from '@/components/sections/Contact';
+'use client'
+
+import Hero from '@/components/sections/Hero'
+import About from '@/components/sections/About'
+import Skills from '@/components/sections/Skills'
+import Projects from '@/components/sections/Projects'
+import Experience from '@/components/sections/Experience'
+import Contact from '@/components/sections/Contact'
+import Navigation from '@/components/Navigation'
+import ParticleBackground from '@/components/ParticleBackground'
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative">
+      <ParticleBackground />
+      <Navigation />
       <Hero />
-      <Work />
       <About />
+      <Skills />
+      <Projects />
+      <Experience />
       <Contact />
     </main>
-  );
+  )
 }
