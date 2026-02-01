@@ -85,7 +85,35 @@ export default function Projects() {
                   />
                 )}
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-300" />
-
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex gap-4">
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Github className="w-6 h-6" />
+                    </motion.a>
+                    <motion.a
+                      href={project.demo}
+                      target={project.demo.startsWith('http') ? "_blank" : undefined}
+                      rel={project.demo.startsWith('http') ? "noopener noreferrer" : undefined}
+                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <ExternalLink className="w-6 h-6" />
+                    </motion.a>
+                  </div>
+                </motion.div>
               </div>
 
               {/* Project Info */}
