@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.4ead92c4.css",
-    "main.js": "/static/js/main.04d91669.js",
-    "index.html": "/index.html",
-    "main.4ead92c4.css.map": "/static/css/main.4ead92c4.css.map",
-    "main.04d91669.js.map": "/static/js/main.04d91669.js.map"
+    "main.css": "/health-chatbot-project/frontend/build/static/css/main.4ead92c4.css",
+    "main.js": "/health-chatbot-project/frontend/build/static/js/main.04d91669.js",
+    "index.html": "/health-chatbot-project/frontend/build/index.html",
+    "main.4ead92c4.css.map": "/health-chatbot-project/frontend/build/static/css/main.4ead92c4.css.map",
+    "main.04d91669.js.map": "/health-chatbot-project/frontend/build/static/js/main.04d91669.js.map"
   },
   "entrypoints": [
     "static/css/main.4ead92c4.css",

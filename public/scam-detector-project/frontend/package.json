@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AI Scam Message Detector - React Frontend",
   "private": true,
+  "homepage": "/scam-detector-project/frontend/build",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
