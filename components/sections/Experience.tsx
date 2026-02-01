@@ -108,10 +108,68 @@ export default function Experience() {
               whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(168, 85, 247, 0.2)' }}
               className="glass p-8 rounded-2xl relative group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 overflow-hidden"
             >
+              {/* Animated background gradient on hover */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
+              
+              {/* Animated border glow */}
+              <motion.div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: 'linear-gradient(90deg, rgba(168,85,247,0.3), rgba(236,72,153,0.3), rgba(239,68,68,0.3))',
+                  backgroundSize: '200% 200%',
+                }}
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              
+              {/* Floating particles effect */}
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-purple-400 rounded-full opacity-0 group-hover:opacity-60"
+                  style={{
+                    left: `${20 + i * 30}%`,
+                    top: `${20 + i * 25}%`,
+                  }}
+                  animate={{
+                    y: [-10, -30, -10],
+                    opacity: [0, 0.6, 0],
+                  }}
+                  transition={{
+                    duration: 2 + i * 0.5,
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                  }}
+                />
+              ))}
+
               {/* Colored dot in top right */}
               <motion.div
-                className="absolute top-6 right-6 w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
-                animate={{ scale: [1, 1.2, 1] }}
+                className="absolute top-6 right-6 w-3 h-3 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+                animate={{ 
+                  scale: [1, 1.4, 1],
+                  boxShadow: [
+                    '0 0 0 0 rgba(168, 85, 247, 0.7)',
+                    '0 0 0 8px rgba(168, 85, 247, 0)',
+                    '0 0 0 0 rgba(168, 85, 247, 0)'
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              
+              {/* Ripple effect on dot */}
+              <motion.div
+                className="absolute top-6 right-6 w-3 h-3 rounded-full border-2 border-purple-400"
+                animate={{ 
+                  scale: [1, 2.5, 2.5],
+                  opacity: [0.6, 0, 0]
+                }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
 
@@ -119,24 +177,47 @@ export default function Experience() {
                 {/* Company Badge and Role */}
                 <div className="flex items-start justify-between mb-4">
                   <motion.div
-                    className="flex items-center gap-2 px-3 py-1.5 glass rounded-lg text-sm font-semibold text-cyan-400"
+                    className="flex items-center gap-2 px-3 py-1.5 glass rounded-lg text-sm font-semibold text-cyan-400 relative overflow-hidden group/badge"
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: index * 0.15 + 0.2 }}
+                    whileHover={{ scale: 1.05 }}
                   >
-                    <Briefcase className="w-4 h-4" />
-                    {exp.company}
+                    {/* Shine effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '200%' }}
+                      transition={{ duration: 0.6 }}
+                    />
+                    <motion.div
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                    >
+                      <Briefcase className="w-4 h-4 relative z-10" />
+                    </motion.div>
+                    <span className="relative z-10">{exp.company}</span>
                   </motion.div>
                 </div>
 
                 {/* Role Title */}
                 <motion.h3
-                  className="text-3xl font-bold mb-2 text-white group-hover:text-gradient-blue transition-all duration-300"
+                  className="text-3xl font-bold mb-2 text-white relative inline-block"
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.15 + 0.25 }}
+                  whileHover={{ scale: 1.02 }}
                 >
-                  {exp.role}
+                  <span className="relative z-10 group-hover:text-gradient transition-all duration-300">
+                    {exp.role}
+                  </span>
+                  {/* Underline effect */}
+                  <motion.span
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.h3>
 
                 {/* Period */}
@@ -146,7 +227,12 @@ export default function Experience() {
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ delay: index * 0.15 + 0.3 }}
                 >
-                  <Calendar className="w-4 h-4" />
+                  <motion.div
+                    animate={{ rotate: [0, -5, 5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.4 }}
+                  >
+                    <Calendar className="w-4 h-4" />
+                  </motion.div>
                   <span>{exp.period}</span>
                 </motion.div>
 
@@ -174,9 +260,16 @@ export default function Experience() {
                       }}
                     >
                       <motion.span
-                        className="text-purple-400 mt-1 shrink-0 font-bold"
-                        animate={{ scale: [1, 1.2, 1] }}
+                        className="text-purple-400 mt-1 shrink-0 font-bold text-base relative"
+                        animate={{ 
+                          scale: [1, 1.15, 1],
+                        }}
                         transition={{ duration: 1.5, repeat: Infinity, delay: achIndex * 0.1 }}
+                        whileHover={{ 
+                          scale: 1.3,
+                          rotate: 360,
+                          textShadow: '0 0 8px rgba(168, 85, 247, 0.8)'
+                        }}
                       >
                         ✓
                       </motion.span>
