@@ -23,7 +23,7 @@ export default function Projects() {
     {
       title: 'AI-Powered Mental Health Chatbot',
       description: 'An intelligent chatbot providing mental health support using advanced AI models. Offers conversational therapy, mood tracking, and personalized wellness recommendations.',
-      image: '/api/placeholder/600/400',
+      image: '/thumbnails/Mental-health-chatbot.png',
       tags: ['AI/ML', 'JavaScript', 'NLP', 'React', 'Node.js'],
       github: 'https://github.com/AA-maker-dev/AI-Powered-Mental-Health-Chatbot',
       demo: 'https://github.com/AA-maker-dev/AI-Powered-Mental-Health-Chatbot',
