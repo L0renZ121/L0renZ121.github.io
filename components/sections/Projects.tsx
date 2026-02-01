@@ -26,7 +26,7 @@ export default function Projects() {
       image: '/thumbnails/Mental-health-chatbot.png',
       tags: ['AI/ML', 'JavaScript', 'NLP', 'React', 'Node.js'],
       github: 'https://github.com/AA-maker-dev/AI-Powered-Mental-Health-Chatbot',
-      demo: 'https://github.com/AA-maker-dev/AI-Powered-Mental-Health-Chatbot',
+      demo: '/health-chatbot',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
@@ -35,7 +35,7 @@ export default function Projects() {
       image: '/api/placeholder/600/400',
       tags: ['Python', 'ML', 'TensorFlow', 'NLP', 'FastAPI'],
       github: 'https://github.com/AA-maker-dev/AI-Scam-Message-Detector',
-      demo: 'https://github.com/AA-maker-dev/AI-Scam-Message-Detector',
+      demo: '/scam-detector',
       gradient: 'from-cyan-500 to-blue-500'
     },
     {
