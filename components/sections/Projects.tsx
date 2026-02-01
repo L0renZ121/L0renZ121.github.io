@@ -39,12 +39,12 @@ export default function Projects() {
       gradient: 'from-cyan-500 to-blue-500'
     },
     {
-      title: 'Social Media Platform',
-      description: 'A prototype social media website with user profiles, posting capabilities, real-time feeds, and social interactions. Built with modern web technologies.',
+      title: 'Portfolio Website',
+      description: 'A modern and responsive portfolio website showcasing my skills, projects, and experience. Built with Next.js, featuring smooth animations, interactive particle backgrounds, and a clean design.',
       image: '/api/placeholder/600/400',
-      tags: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'WebSocket'],
-      github: 'https://github.com/AA-maker-dev/Social-Media',
-      demo: 'https://github.com/AA-maker-dev/Social-Media',
+      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      github: 'https://github.com/L0renZ121/L0renZ121.github.io',
+      demo: 'https://abhi88.com.np/#home',
       gradient: 'from-green-500 to-emerald-500'
     },
   ]
