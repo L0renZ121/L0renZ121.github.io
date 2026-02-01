@@ -23,70 +23,118 @@ export default function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20 relative" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-20 relative overflow-hidden" ref={ref}>
+      {/* Background animation */}
+      <div className="absolute -top-32 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" />
+      <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animation-delay-4000" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Skills & Technologies</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-block px-4 py-2 glass rounded-full text-sm mb-4 text-gradient-blue"
+          >
+            What I Use
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold mb-4 text-gradient"
+          >
+            Skills & Technologies
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-gray-400 max-w-2xl mx-auto text-lg"
+          >
             Tools and technologies I use to bring ideas to life
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="glass p-6 rounded-xl flex flex-col items-center justify-center hover:glow-cyan transition-all duration-300 group"
+              initial={{ opacity: 0, scale: 0.6, y: 30 }}
+              animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.08,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+              whileHover={{
+                scale: 1.15,
+                rotate: 5,
+                boxShadow: '0 20px 40px rgba(168, 85, 247, 0.3)',
+              }}
+              className="glass p-6 rounded-xl flex flex-col items-center justify-center hover:glow-cyan transition-all duration-500 group cursor-pointer"
             >
               <motion.div
-                className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                className="text-6xl mb-4 group-hover:scale-120 transition-transform duration-300"
                 style={{ color: skill.color }}
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
+                animate={isInView ? { y: [0, -8, 0] } : {}}
+                transition={{
+                  duration: 2 + index * 0.1,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                whileHover={{ rotate: 360, scale: 1.2 }}
               >
                 {skill.icon}
               </motion.div>
-              <h3 className="font-semibold text-center mb-2">{skill.name}</h3>
-              <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+              <h3 className="font-semibold text-center mb-3 group-hover:text-gradient-blue transition-all duration-300">
+                {skill.name}
+              </h3>
+              <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
+                  className="h-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
                   initial={{ width: 0 }}
                   animate={isInView ? { width: `${skill.level}%` } : {}}
-                  transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
+                  transition={{ duration: 1.2, delay: index * 0.08 + 0.4, ease: 'easeOut' }}
                 />
               </div>
-              <span className="text-xs text-gray-400 mt-2">{skill.level}%</span>
+              <span className="text-xs text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">{skill.level}%</span>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-20 text-center"
         >
-          <p className="text-gray-400 mb-8 text-lg">
+          <motion.p
+            className="text-gray-400 mb-8 text-lg"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.9 }}
+          >
             Always learning and exploring new technologies to stay ahead of the curve
-          </p>
+          </motion.p>
           <div className="flex flex-wrap justify-center gap-3">
             {['AI/ML', 'Web3', 'Cloud Computing', 'DevOps', 'UI/UX'].map((item, index) => (
               <motion.span
                 key={item}
-                className="px-4 py-2 glass rounded-full text-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-                whileHover={{ scale: 1.1, backgroundColor: 'rgba(168, 85, 247, 0.2)' }}
+                className="px-4 py-2 glass rounded-full text-sm hover:border-white/40 transition-all duration-300"
+                initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 1 + index * 0.08 }}
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: 'rgba(168, 85, 247, 0.2)',
+                  boxShadow: '0 0 20px rgba(168, 85, 247, 0.3)',
+                }}
               >
                 {item}
               </motion.span>
