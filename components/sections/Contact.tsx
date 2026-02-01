@@ -178,7 +178,7 @@ export default function Contact() {
           className="mt-20 pt-8 border-t border-white/10 text-center text-gray-400"
         >
           <p>© 2024 Portfolio. Built with Next.js, TypeScript & Tailwind CSS</p>
-          <p className="text-sm mt-2">Designed & Developed with 💜</p>
+          <p className="text-sm mt-2">Designed & Developed by Abhi Khatiwada</p>
         </motion.div>
       </div>
     </section>
