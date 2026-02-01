@@ -3,7 +3,7 @@
 export default function SentinelAI() {
   return (
     <iframe
-      src="https://aa-maker-dev.github.io/Disaster-Early-Help-Platform/"
+      src="/sentinel-ai-project/index.html"
       style={{
         width: '100vw',
         height: '100vh',
