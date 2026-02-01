@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-x-hidden`}>
         <LoadingScreen />
-        {children}
+        <div className="page-transition">
+          {children}
+        </div>
       </body>
     </html>
   )

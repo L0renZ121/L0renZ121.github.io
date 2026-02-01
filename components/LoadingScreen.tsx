@@ -80,24 +80,26 @@ export default function LoadingScreen() {
                 {/* AK Text with camera zoom effect */}
                 <motion.div
                   className="relative"
-                  initial={{ x: -300, opacity: 0, scale: 1 }}
+                  initial={{ x: -300, opacity: 0, scale: 1, letterSpacing: '0.1em' }}
                   animate={{ 
                     x: 0, 
                     opacity: zoomPhase ? 0 : 1,
-                    scale: zoomPhase ? 20 : 1,
-                    z: zoomPhase ? 1000 : 0,
+                    scale: zoomPhase ? 30 : 1,
+                    z: zoomPhase ? 1500 : 0,
+                    letterSpacing: zoomPhase ? '2em' : '0.1em',
                   }}
                   transition={{ 
                     x: { duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] },
-                    opacity: { duration: zoomPhase ? 0.5 : 0.6 },
+                    opacity: { duration: zoomPhase ? 0.6 : 0.6 },
                     scale: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] },
-                    z: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }
+                    z: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] },
+                    letterSpacing: { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }
                   }}
                   style={{
                     transformStyle: 'preserve-3d',
                   }}
                 >
-                  <h1 className="text-6xl md:text-7xl font-bold tracking-wider">
+                  <h1 className="text-6xl md:text-7xl font-bold">
                     <span className="text-gradient animate-gradient">AK</span>
                   </h1>
 
@@ -164,38 +166,84 @@ export default function LoadingScreen() {
             }}
             transition={{ duration: 0.3 }}
           >
-            {/* Radial blur effect */}
+            {/* White light glow from the gap */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-radial from-white via-purple-500/50 to-transparent"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ 
+                opacity: zoomPhase ? [0, 0.4, 1] : 0,
+                scale: zoomPhase ? [0.5, 1, 2] : 0.5,
+              }}
+              transition={{ duration: 1.5, ease: 'easeOut' }}
+            />
+            
+            {/* Dark vignette edges */}
             <motion.div
               className="absolute inset-0 bg-black"
               initial={{ opacity: 0 }}
               animate={{ 
-                opacity: zoomPhase ? 0.6 : 0,
+                opacity: zoomPhase ? 0.8 : 0,
               }}
               transition={{ duration: 0.8 }}
+              style={{
+                maskImage: 'radial-gradient(circle, transparent 30%, black 70%)',
+                WebkitMaskImage: 'radial-gradient(circle, transparent 30%, black 70%)',
+              }}
             />
             
-            {/* Tunnel rings */}
-            {[...Array(5)].map((_, i) => (
+            {/* Expanding tunnel rings */}
+            {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute rounded-full border-4 border-purple-500/30"
+                className="absolute rounded-full border-4 border-purple-400/40"
                 initial={{ 
-                  width: 50 + (i * 50), 
-                  height: 50 + (i * 50), 
+                  width: 30 + (i * 40), 
+                  height: 30 + (i * 40), 
                   opacity: 0 
                 }}
                 animate={{ 
-                  width: zoomPhase ? 2000 : 50 + (i * 50), 
-                  height: zoomPhase ? 2000 : 50 + (i * 50), 
-                  opacity: zoomPhase ? [0, 0.5, 0] : 0 
+                  width: zoomPhase ? 3000 : 30 + (i * 40), 
+                  height: zoomPhase ? 3000 : 30 + (i * 40), 
+                  opacity: zoomPhase ? [0, 0.6, 0] : 0 
                 }}
                 transition={{ 
-                  duration: 1.2,
-                  delay: i * 0.1,
-                  ease: 'easeOut'
+                  duration: 1.3,
+                  delay: i * 0.08,
+                  ease: [0.43, 0.13, 0.23, 0.96]
                 }}
               />
             ))}
+            
+            {/* Speed lines effect */}
+            {[...Array(12)].map((_, i) => {
+              const angle = (i * 30) * (Math.PI / 180);
+              const startX = Math.cos(angle) * 100;
+              const startY = Math.sin(angle) * 100;
+              
+              return (
+                <motion.div
+                  key={`line-${i}`}
+                  className="absolute w-1 bg-gradient-to-b from-transparent via-purple-400 to-transparent"
+                  style={{
+                    height: '200px',
+                    left: `calc(50% + ${startX}px)`,
+                    top: `calc(50% + ${startY}px)`,
+                    transform: `rotate(${i * 30}deg)`,
+                    transformOrigin: 'center',
+                  }}
+                  initial={{ opacity: 0, scaleY: 0 }}
+                  animate={{
+                    opacity: zoomPhase ? [0, 0.8, 0] : 0,
+                    scaleY: zoomPhase ? [0, 2, 4] : 0,
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    delay: 0.2 + (i * 0.03),
+                    ease: 'easeOut'
+                  }}
+                />
+              );
+            })}
           </motion.div>
         </motion.div>
       )}

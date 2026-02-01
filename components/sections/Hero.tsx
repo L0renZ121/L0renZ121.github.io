@@ -121,10 +121,10 @@ export default function Hero() {
               transition={{ duration: 2, repeat: Infinity }}
             >
               <motion.div
-                className="w-10 h-10 rounded-full glass flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300"
+                className="w-12 h-12 rounded-full glass flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 border border-white/30"
                 whileHover={{ scale: 1.1 }}
               >
-                <ArrowDown className="w-6 h-6 text-gradient-blue" />
+                <ArrowDown className="w-6 h-6 text-white" strokeWidth={2.5} />
               </motion.div>
             </motion.a>
           </motion.div>
