@@ -103,7 +103,7 @@ export default function About() {
             href="/resume.pdf"
             className="inline-block px-8 py-4 glass rounded-full font-semibold hover:glow-cyan transition-all duration-300"
           >
-            Download Resume
+            Download CV
           </a>
         </motion.div>
       </div>
