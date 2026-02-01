@@ -718,28 +718,65 @@ emergencyForm.addEventListener('submit', async (e) => {
 function calculatePriorityScore(data) {
     let score = 0;
     
-    // Base score by urgency
+    // ===== AI PRIORITIZATION ALGORITHM =====
+    // Multi-factor analysis system
+    
+    // 1. URGENCY LEVEL ANALYSIS (30% weight)
     const urgencyScores = {
-        'low': 25,
+        'low': 20,
         'medium': 50,
         'high': 75,
-        'critical': 95
+        'critical': 100
     };
-    score = urgencyScores[data.urgency] || 50;
+    const urgencyScore = urgencyScores[data.urgency] || 50;
     
-    // Add randomness for AI simulation (±10)
-    score += Math.floor(Math.random() * 20) - 10;
+    // 2. DISASTER TYPE RISK ANALYSIS (40% weight)
+    const disasterRiskMatrix = {
+        'flood': { severity: 85, population_impact: 0.9, spread_risk: 0.8 },
+        'fire': { severity: 90, population_impact: 0.85, spread_risk: 0.9 },
+        'earthquake': { severity: 95, population_impact: 0.95, spread_risk: 0.7 },
+        'hurricane': { severity: 88, population_impact: 0.92, spread_risk: 0.85 },
+        'tornado': { severity: 92, population_impact: 0.88, spread_risk: 0.75 },
+        'landslide': { severity: 75, population_impact: 0.7, spread_risk: 0.6 },
+        'tsunami': { severity: 98, population_impact: 0.98, spread_risk: 0.8 },
+        'wildfire': { severity: 87, population_impact: 0.82, spread_risk: 0.92 },
+        'avalanche': { severity: 80, population_impact: 0.6, spread_risk: 0.5 },
+        'drought': { severity: 65, population_impact: 0.75, spread_risk: 0.4 },
+        'blizzard': { severity: 78, population_impact: 0.8, spread_risk: 0.7 },
+        'heatwave': { severity: 70, population_impact: 0.85, spread_risk: 0.3 },
+        'other': { severity: 50, population_impact: 0.5, spread_risk: 0.5 }
+    };
     
-    // Boost for high-risk disasters
-    const highRiskDisasters = ['fire', 'earthquake', 'hurricane', 'tornado'];
-    if (highRiskDisasters.includes(data.disasterType)) {
-        score += 5;
-    }
+    const disasterType = data.disasterType.toLowerCase();
+    const riskProfile = disasterRiskMatrix[disasterType] || disasterRiskMatrix['other'];
+    const disasterRiskScore = (riskProfile.severity + (riskProfile.population_impact * 100) + (riskProfile.spread_risk * 100)) / 3;
+    
+    // 3. MESSAGE SENTIMENT ANALYSIS (15% weight)
+    const messageLength = data.message.length;
+    const urgencyKeywords = ['urgent', 'critical', 'emergency', 'severe', 'danger', 'help', 'dying', 'trapped', 'injured', 'lives', 'immediate', 'asap'];
+    const urgencyCount = urgencyKeywords.filter(keyword => 
+        data.message.toLowerCase().includes(keyword)
+    ).length;
+    const messageSentimentScore = Math.min(100, 30 + urgencyCount * 10 + Math.min(messageLength / 5, 30));
+    
+    // 4. LOCATION FACTOR (15% weight)
+    // Check if location contains multiple details (street, city, zip, etc)
+    const locationDetailScore = (data.location.length / 100) * 100;
+    const locationScore = Math.min(100, locationDetailScore);
+    
+    // ===== CALCULATE WEIGHTED FINAL SCORE =====
+    score = (urgencyScore * 0.30) + 
+            (disasterRiskScore * 0.40) + 
+            (messageSentimentScore * 0.15) + 
+            (locationScore * 0.15);
+    
+    // Apply noise factor (±5% for realism)
+    score += (Math.random() - 0.5) * 10;
     
     // Ensure score is within bounds
     score = Math.max(0, Math.min(100, score));
     
-    return score;
+    return Math.round(score);
 }
 
 // ==========================================
