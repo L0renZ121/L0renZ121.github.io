@@ -43,7 +43,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Abhi
+            Abhi Khatiwada
           </motion.a>
 
           <div className="hidden md:flex items-center space-x-8">
