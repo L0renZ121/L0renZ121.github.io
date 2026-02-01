@@ -44,21 +44,11 @@ export default function GoToTop() {
           aria-label="Go to top"
         >
           <motion.div
-            animate={{ 
-              y: [0, -8, 0],
-              rotate: [0, 360]
-            }}
+            animate={{ y: [0, -8, 0] }}
             transition={{
-              y: {
-                duration: 1.5,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              },
-              rotate: {
-                duration: 3,
-                repeat: Infinity,
-                ease: 'linear',
-              }
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
             }}
           >
             <Image
