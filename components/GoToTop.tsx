@@ -50,11 +50,16 @@ export default function GoToTop() {
               repeat: Infinity,
               ease: 'easeInOut',
             }}
+            className="flex items-center justify-center"
           >
-            <ArrowUp
-              size={24}
-              className="text-gradient transition-all duration-300 group-hover:text-gradient-blue"
-            />
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-full blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <ArrowUp
+                size={24}
+                className="relative text-gradient transition-all duration-300 group-hover:text-gradient-blue drop-shadow-lg"
+                strokeWidth={3}
+              />
+            </div>
           </motion.div>
         </motion.button>
       )}
