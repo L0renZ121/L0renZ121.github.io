@@ -40,9 +40,9 @@ export default function About() {
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <motion.span
@@ -73,9 +73,9 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="glass p-8 rounded-2xl glow hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 transform hover:-translate-y-2">
               <h3 className="text-2xl font-bold mb-4 text-gradient-blue">My Journey</h3>
@@ -98,12 +98,11 @@ export default function About() {
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
-                  duration: 0.6,
-                  delay: 0.4 + index * 0.1,
-                  ease: [0.25, 0.46, 0.45, 0.94],
+                  duration: 0.4,
+                  delay: 0.2 + index * 0.05,
                 }}
                 whileHover={{
                   scale: 1.08,

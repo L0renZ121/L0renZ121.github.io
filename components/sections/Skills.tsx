@@ -30,9 +30,9 @@ export default function Skills() {
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <motion.span
@@ -65,12 +65,11 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, scale: 0.6, y: 30 }}
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{
-                duration: 0.6,
-                delay: index * 0.08,
-                ease: [0.25, 0.46, 0.45, 0.94],
+                duration: 0.4,
+                delay: index * 0.05,
               }}
               whileHover={{
                 scale: 1.15,

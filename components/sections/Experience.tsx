@@ -64,9 +64,9 @@ export default function Experience() {
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <motion.span
@@ -99,12 +99,11 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.company}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: 0.8,
-                delay: index * 0.15,
-                ease: [0.25, 0.46, 0.45, 0.94],
+                duration: 0.5,
+                delay: index * 0.1,
               }}
               whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(168, 85, 247, 0.2)' }}
               className="glass p-8 rounded-2xl relative group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 overflow-hidden"
