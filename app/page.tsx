@@ -8,6 +8,7 @@ import Experience from '@/components/sections/Experience'
 import Contact from '@/components/sections/Contact'
 import Navigation from '@/components/Navigation'
 import ParticleBackground from '@/components/ParticleBackground'
+import GoToTop from '@/components/GoToTop'
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Projects />
       <Experience />
       <Contact />
+      <GoToTop />
     </main>
   )
 }
