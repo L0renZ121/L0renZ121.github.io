@@ -1,14 +1,11 @@
 {
-  "name": "abhi-portfolio",
+  "name": "emergency-response-platform",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "export": "next build",
-    "deploy": "next build && touch out/.nojekyll && git add -f out && git commit -m 'Deploy to GitHub Pages' && git subtree push --prefix out origin gh-pages"
+    "dev": "echo 'No dev server needed - open index.html directly'",
+    "build": "echo 'No build step needed for static HTML'",
+    "deploy": "git add . && git commit -m 'Deploy updates' && git push origin main"
   },
   "dependencies": {
     "react": "^18.2.0",
