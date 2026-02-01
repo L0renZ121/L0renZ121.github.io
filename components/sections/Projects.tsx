@@ -14,7 +14,7 @@ export default function Projects() {
     {
       title: 'Sentinel AI – Disaster Early-Help Platform',
       description: 'AI-assisted emergency intake with live map visualization. Submit emergency requests, get AI-prioritized scores, and see incidents plotted on an interactive Leaflet map with real-time geocoding.',
-      image: '/api/placeholder/600/400',
+      image: '/thumbnails/SentinelAI.png',
       tags: ['AI/ML', 'FastAPI', 'Leaflet', 'Geopy', 'JavaScript'],
       github: 'https://github.com/AA-maker-dev/Disaster-Early-Help-Platform',
       demo: 'https://abhi88.com.np/sentinel-ai',
