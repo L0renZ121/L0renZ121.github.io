@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 export default function LoadingScreen() {
@@ -15,17 +15,22 @@ export default function LoadingScreen() {
     return () => clearTimeout(timer)
   }, [])
 
-  if (!isLoading) {
-    return null
-  }
-
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: 'easeInOut' }}
-      className="fixed inset-0 z-50 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center overflow-hidden"
-    >
+    <AnimatePresence mode="wait">
+      {isLoading && (
+        <motion.div
+          initial={{ opacity: 1, scale: 1 }}
+          exit={{ 
+            opacity: 0,
+            scale: 1.1,
+            filter: 'blur(20px)'
+          }}
+          transition={{ 
+            duration: 1.2, 
+            ease: [0.43, 0.13, 0.23, 0.96]
+          }}
+          className="fixed inset-0 z-50 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center overflow-hidden"
+        >
       {/* Background animated orbs */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15"
@@ -187,6 +192,8 @@ export default function LoadingScreen() {
         animate={{ rotate: -360 }}
         transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
       />
-    </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
