@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowUp } from 'lucide-react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function GoToTop() {
@@ -51,10 +51,12 @@ export default function GoToTop() {
               ease: 'easeInOut',
             }}
           >
-            <ArrowUp
-              size={24}
-              className="text-gradient"
-              strokeWidth={2.5}
+            <Image
+              src="/up-arrow.png"
+              alt="Go to top"
+              width={24}
+              height={24}
+              className="w-6 h-6"
             />
           </motion.div>
         </motion.button>
