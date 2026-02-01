@@ -32,7 +32,7 @@ export default function Skills() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <motion.span
@@ -68,8 +68,8 @@ export default function Skills() {
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{
-                duration: 0.4,
-                delay: index * 0.05,
+                duration: 0.3,
+                delay: index * 0.03,
               }}
               whileHover={{
                 scale: 1.15,

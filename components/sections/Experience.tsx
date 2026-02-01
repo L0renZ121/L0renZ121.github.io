@@ -66,7 +66,7 @@ export default function Experience() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <motion.span
@@ -102,11 +102,11 @@ export default function Experience() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: 0.5,
-                delay: index * 0.1,
+                duration: 0.3,
+                delay: index * 0.05,
               }}
               whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(168, 85, 247, 0.2)' }}
-              className="glass p-8 rounded-2xl relative group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 overflow-hidden"
+              className="glass p-8 rounded-2xl relative group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 overflow-hidden"
             >
               {/* Animated background gradient on hover */}
               <motion.div

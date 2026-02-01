@@ -42,7 +42,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <motion.span
@@ -75,7 +75,7 @@ export default function About() {
           <motion.div
               initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
           >
             <div className="glass p-8 rounded-2xl glow hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 transform hover:-translate-y-2">
               <h3 className="text-2xl font-bold mb-4 text-gradient-blue">My Journey</h3>
@@ -101,8 +101,8 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
-                  duration: 0.4,
-                  delay: 0.2 + index * 0.05,
+                  duration: 0.3,
+                  delay: 0.1 + index * 0.03,
                 }}
                 whileHover={{
                   scale: 1.08,

@@ -59,13 +59,13 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="inline-block px-4 py-2 glass rounded-full text-sm mb-4 text-gradient-blue"
           >
             My Work
@@ -73,7 +73,7 @@ export default function Projects() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold mb-4 text-gradient"
           >
             Featured Projects
@@ -81,7 +81,7 @@ export default function Projects() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="text-gray-400 max-w-2xl mx-auto text-lg"
           >
             A showcase of my recent work and personal projects
@@ -95,11 +95,11 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: 0.5,
-                delay: index * 0.1,
+                duration: 0.4,
+                delay: index * 0.05,
               }}
-              whileHover={{ y: -15, transition: { duration: 0.3 } }}
-              className="glass rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
+              whileHover={{ y: -15, transition: { duration: 0.2 } }}
+              className="glass rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
             >
               {/* Project Image */}
               <div className="relative h-64 bg-gradient-to-br overflow-hidden" style={{ background: `linear-gradient(to bottom right, ${project.gradient.split(' ')[1]}, ${project.gradient.split(' ')[3]})` }}>
@@ -108,7 +108,7 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-125 transition-transform duration-500 ease-out"
+                    className="object-cover transition-transform duration-300"
                   />
                 )}
                 <motion.div
