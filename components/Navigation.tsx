@@ -60,7 +60,7 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <motion.a href="https://github.com/L0renZ121" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
+            <motion.a href="https://github.com/AA-maker-dev" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
               <Github size={20} />
             </motion.a>
             <motion.a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>

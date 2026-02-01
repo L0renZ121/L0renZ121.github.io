@@ -115,7 +115,7 @@ This project is open source and available for personal use.
 
 ## 👨‍💻 Author
 
-Your Name - [GitHub](https://github.com) | [LinkedIn](https://linkedin.com)
+Your Name - [GitHub](https://github.com/AA-maker-dev) | [LinkedIn](https://linkedin.com)
 
 ---
 

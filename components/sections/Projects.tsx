@@ -16,7 +16,7 @@ export default function Projects() {
       description: 'A full-featured online shopping platform with real-time inventory, payment integration, and admin dashboard.',
       image: '/api/placeholder/600/400',
       tags: ['Next.js', 'TypeScript', 'MongoDB', 'Stripe'],
-      github: 'https://github.com',
+      github: 'https://github.com/AA-maker-dev',
       demo: 'https://demo.com',
       gradient: 'from-purple-500 to-pink-500'
     },
@@ -25,7 +25,7 @@ export default function Projects() {
       description: 'An AI-powered tool that generates high-quality content using GPT-4 API with custom prompts and templates.',
       image: '/api/placeholder/600/400',
       tags: ['React', 'OpenAI', 'Node.js', 'TailwindCSS'],
-      github: 'https://github.com',
+      github: 'https://github.com/AA-maker-dev',
       demo: 'https://demo.com',
       gradient: 'from-cyan-500 to-blue-500'
     },
@@ -34,7 +34,7 @@ export default function Projects() {
       description: 'A collaborative project management tool with real-time updates, team chat, and Kanban boards.',
       image: '/api/placeholder/600/400',
       tags: ['Vue.js', 'Firebase', 'Socket.io', 'Vuetify'],
-      github: 'https://github.com',
+      github: 'https://github.com/AA-maker-dev',
       demo: 'https://demo.com',
       gradient: 'from-green-500 to-emerald-500'
     },
@@ -43,7 +43,7 @@ export default function Projects() {
       description: 'A comprehensive analytics dashboard for tracking portfolio performance with charts and insights.',
       image: '/api/placeholder/600/400',
       tags: ['React', 'D3.js', 'Express', 'PostgreSQL'],
-      github: 'https://github.com',
+      github: 'https://github.com/AA-maker-dev',
       demo: 'https://demo.com',
       gradient: 'from-orange-500 to-red-500'
     },
@@ -142,7 +142,7 @@ export default function Projects() {
           className="text-center mt-12"
         >
           <a
-            href="https://github.com"
+            href="https://github.com/AA-maker-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full hover:glow-purple transition-all group"

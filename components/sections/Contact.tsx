@@ -25,7 +25,7 @@ export default function Contact() {
   ]
 
   const socialLinks = [
-    { icon: <Github />, label: 'GitHub', href: 'https://github.com', color: 'hover:text-gray-400' },
+    { icon: <Github />, label: 'GitHub', href: 'https://github.com/AA-maker-dev', color: 'hover:text-gray-400' },
     { icon: <Linkedin />, label: 'LinkedIn', href: 'https://linkedin.com', color: 'hover:text-blue-400' },
     { icon: <Twitter />, label: 'Twitter', href: 'https://twitter.com', color: 'hover:text-cyan-400' },
   ]
