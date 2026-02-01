@@ -12,40 +12,40 @@ export default function Projects() {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with real-time inventory, payment integration, and admin dashboard.',
+      title: 'Sentinel AI – Disaster Early-Help Platform',
+      description: 'AI-assisted emergency intake with live map visualization. Submit emergency requests, get AI-prioritized scores, and see incidents plotted on an interactive Leaflet map with real-time geocoding.',
       image: '/api/placeholder/600/400',
-      tags: ['Next.js', 'TypeScript', 'MongoDB', 'Stripe'],
-      github: 'https://github.com/AA-maker-dev',
-      demo: 'https://demo.com',
+      tags: ['AI/ML', 'FastAPI', 'Leaflet', 'Geopy', 'JavaScript'],
+      github: 'https://github.com/AA-maker-dev/Disaster-Early-Help-Platform',
+      demo: 'https://github.com/AA-maker-dev/Disaster-Early-Help-Platform',
+      gradient: 'from-red-500 to-orange-500'
+    },
+    {
+      title: 'AI-Powered Mental Health Chatbot',
+      description: 'An intelligent chatbot providing mental health support using advanced AI models. Offers conversational therapy, mood tracking, and personalized wellness recommendations.',
+      image: '/api/placeholder/600/400',
+      tags: ['AI/ML', 'JavaScript', 'NLP', 'React', 'Node.js'],
+      github: 'https://github.com/AA-maker-dev/AI-Powered-Mental-Health-Chatbot',
+      demo: 'https://github.com/AA-maker-dev/AI-Powered-Mental-Health-Chatbot',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
-      title: 'AI Content Generator',
-      description: 'An AI-powered tool that generates high-quality content using GPT-4 API with custom prompts and templates.',
+      title: 'AI Scam Message Detector',
+      description: 'Machine learning-powered system that identifies and classifies scam messages in real-time. Protects users by analyzing message content and detecting fraudulent patterns.',
       image: '/api/placeholder/600/400',
-      tags: ['React', 'OpenAI', 'Node.js', 'TailwindCSS'],
-      github: 'https://github.com/AA-maker-dev',
-      demo: 'https://demo.com',
+      tags: ['Python', 'ML', 'TensorFlow', 'NLP', 'FastAPI'],
+      github: 'https://github.com/AA-maker-dev/AI-Scam-Message-Detector',
+      demo: 'https://github.com/AA-maker-dev/AI-Scam-Message-Detector',
       gradient: 'from-cyan-500 to-blue-500'
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative project management tool with real-time updates, team chat, and Kanban boards.',
+      title: 'Social Media Platform',
+      description: 'A prototype social media website with user profiles, posting capabilities, real-time feeds, and social interactions. Built with modern web technologies.',
       image: '/api/placeholder/600/400',
-      tags: ['Vue.js', 'Firebase', 'Socket.io', 'Vuetify'],
-      github: 'https://github.com/AA-maker-dev',
-      demo: 'https://demo.com',
+      tags: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'WebSocket'],
+      github: 'https://github.com/AA-maker-dev/Social-Media',
+      demo: 'https://github.com/AA-maker-dev/Social-Media',
       gradient: 'from-green-500 to-emerald-500'
-    },
-    {
-      title: 'Portfolio Dashboard',
-      description: 'A comprehensive analytics dashboard for tracking portfolio performance with charts and insights.',
-      image: '/api/placeholder/600/400',
-      tags: ['React', 'D3.js', 'Express', 'PostgreSQL'],
-      github: 'https://github.com/AA-maker-dev',
-      demo: 'https://demo.com',
-      gradient: 'from-orange-500 to-red-500'
     },
   ]
 
