@@ -100,7 +100,8 @@ export default function About() {
           className="text-center"
         >
           <a
-            href="/resume.pdf"
+            href="/CV Abhi.pdf"
+            download="CV Abhi.pdf"
             className="inline-block px-8 py-4 glass rounded-full font-semibold hover:glow-cyan transition-all duration-300"
           >
             Download CV
