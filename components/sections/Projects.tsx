@@ -50,29 +50,57 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20 relative" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-20 relative overflow-hidden" ref={ref}>
+      {/* Background animation */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-blob" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animation-delay-4000" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Featured Projects</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-block px-4 py-2 glass rounded-full text-sm mb-4 text-gradient-blue"
+          >
+            My Work
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold mb-4 text-gradient"
+          >
+            Featured Projects
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-gray-400 max-w-2xl mx-auto text-lg"
+          >
             A showcase of my recent work and personal projects
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="glass rounded-2xl overflow-hidden group"
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.15,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+              whileHover={{ y: -15, transition: { duration: 0.3 } }}
+              className="glass rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
             >
               {/* Project Image */}
               <div className="relative h-64 bg-gradient-to-br overflow-hidden" style={{ background: `linear-gradient(to bottom right, ${project.gradient.split(' ')[1]}, ${project.gradient.split(' ')[3]})` }}>
@@ -81,56 +109,75 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="object-cover group-hover:scale-125 transition-transform duration-500 ease-out"
                   />
                 )}
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-300" />
                 <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
+                  className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"
+                  initial={{ opacity: 0.4 }}
+                  whileHover={{ opacity: 0.2 }}
+                />
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center gap-4"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="flex gap-4">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Github className="w-6 h-6" />
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <ExternalLink className="w-6 h-6" />
-                    </motion.a>
-                  </div>
+                  <motion.a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-4 bg-white/20 backdrop-blur-md rounded-full hover:bg-white/40 transition-all duration-300 border border-white/30"
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Github className="w-6 h-6" />
+                  </motion.a>
+                  <motion.a
+                    href={project.demo}
+                    className="p-4 bg-white/20 backdrop-blur-md rounded-full hover:bg-white/40 transition-all duration-300 border border-white/30"
+                    whileHover={{ scale: 1.15, rotate: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <ExternalLink className="w-6 h-6" />
+                  </motion.a>
                 </motion.div>
               </div>
 
               {/* Project Info */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-gradient transition-all">
+                <motion.h3
+                  className="text-2xl font-bold mb-3"
+                  initial={{ color: '#ffffff' }}
+                  whileHover={{ color: '#a78bfa' }}
+                  transition={{ duration: 0.3 }}
+                >
                   {project.title}
-                </h3>
-                <p className="text-gray-400 mb-4">
+                </motion.h3>
+                <motion.p
+                  className="text-gray-400 mb-4 leading-relaxed"
+                  initial={{ opacity: 0.7 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
                   {project.description}
-                </p>
+                </motion.p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIndex) => (
                     <motion.span
                       key={tag}
-                      className="px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full text-sm border border-white/10"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.3, delay: index * 0.2 + tagIndex * 0.1 }}
-                      whileHover={{ scale: 1.1, backgroundColor: 'rgba(168, 85, 247, 0.2)' }}
+                      className="px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full text-sm border border-white/10 hover:border-white/40"
+                      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                      animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.15 + tagIndex * 0.05,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        backgroundColor: 'rgba(168, 85, 247, 0.3)',
+                        boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)',
+                      }}
                     >
                       {tag}
                     </motion.span>
@@ -142,20 +189,29 @@ export default function Projects() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center mt-16"
         >
-          <a
+          <motion.a
             href="https://github.com/AA-maker-dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full hover:glow-purple transition-all group"
+            className="inline-flex items-center gap-2 px-8 py-4 glass rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all group relative overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <span>View More Projects</span>
-            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+            <motion.span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            <span className="relative">View More Projects</span>
+            <motion.span
+              className="relative"
+              animate={{ x: [0, 4, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <ExternalLink className="w-4 h-4" />
+            </motion.span>
+          </motion.a>
         </motion.div>
       </div>
     </section>
