@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from 'lucide-react'
+import { Mail, MapPin, Send, Github, Instagram, Facebook } from 'lucide-react'
 
 export default function Contact() {
   const ref = useRef(null)
@@ -26,8 +26,8 @@ export default function Contact() {
 
   const socialLinks = [
     { icon: <Github />, label: 'GitHub', href: 'https://github.com/AA-maker-dev', color: 'hover:text-gray-400' },
-    { icon: <Linkedin />, label: 'LinkedIn', href: 'https://linkedin.com', color: 'hover:text-blue-400' },
-    { icon: <Twitter />, label: 'Twitter', href: 'https://twitter.com', color: 'hover:text-cyan-400' },
+    { icon: <Instagram />, label: 'Instagram', href: 'https://www.instagram.com/abhi_khatiwada/', color: 'hover:text-pink-400' },
+    { icon: <Facebook />, label: 'Facebook', href: 'https://www.facebook.com/khatiwada.abhi/', color: 'hover:text-blue-400' },
   ]
 
   return (

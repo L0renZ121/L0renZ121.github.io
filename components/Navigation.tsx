@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react'
+import { Menu, X, Github, Instagram, Facebook } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navigation() {
@@ -63,11 +63,11 @@ export default function Navigation() {
             <motion.a href="https://github.com/AA-maker-dev" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
               <Github size={20} />
             </motion.a>
-            <motion.a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
-              <Linkedin size={20} />
+            <motion.a href="https://www.instagram.com/abhi_khatiwada/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-pink-400" whileHover={{ scale: 1.1 }}>
+              <Instagram size={20} />
             </motion.a>
-            <motion.a href="mailto:abhi@example.com" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
-              <Mail size={20} />
+            <motion.a href="https://www.facebook.com/khatiwada.abhi/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-blue-400" whileHover={{ scale: 1.1 }}>
+              <Facebook size={20} />
             </motion.a>
           </div>
 
