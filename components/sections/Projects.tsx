@@ -17,7 +17,7 @@ export default function Projects() {
       image: '/api/placeholder/600/400',
       tags: ['AI/ML', 'FastAPI', 'Leaflet', 'Geopy', 'JavaScript'],
       github: 'https://github.com/AA-maker-dev/Disaster-Early-Help-Platform',
-      demo: 'https://github.com/AA-maker-dev/Disaster-Early-Help-Platform',
+      demo: 'https://abhi88.com.np/sentinel-ai',
       gradient: 'from-red-500 to-orange-500'
     },
     {
