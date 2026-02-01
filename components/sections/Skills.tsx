@@ -72,29 +72,51 @@ export default function Skills() {
                 delay: index * 0.03,
               }}
               whileHover={{
-                scale: 1.15,
-                rotate: 5,
-                boxShadow: '0 20px 40px rgba(168, 85, 247, 0.3)',
+                scale: 1.1,
+                z: 50,
+                rotateX: -10,
+                rotateY: 10,
+                boxShadow: '0 25px 50px -12px rgba(168, 85, 247, 0.5)',
               }}
-              className="glass p-6 rounded-xl flex flex-col items-center justify-center hover:glow-cyan transition-all duration-500 group cursor-pointer"
+              style={{
+                transformStyle: 'preserve-3d',
+                perspective: '1000px',
+              }}
+              className="glass p-6 rounded-xl flex flex-col items-center justify-center hover:glow-cyan transition-all duration-300 group cursor-pointer relative"
             >
+              {/* 3D depth layer */}
               <motion.div
-                className="text-6xl mb-4 group-hover:scale-120 transition-transform duration-300"
-                style={{ color: skill.color }}
+                className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl"
+                style={{ transform: 'translateZ(-20px)' }}
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              
+              <motion.div
+                className="text-6xl mb-4 relative z-10"
+                style={{ 
+                  color: skill.color,
+                  transformStyle: 'preserve-3d',
+                }}
                 animate={isInView ? { y: [0, -8, 0] } : {}}
                 transition={{
                   duration: 2 + index * 0.1,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-                whileHover={{ rotate: 360, scale: 1.2 }}
+                whileHover={{ 
+                  scale: 1.3,
+                  rotateY: 360,
+                  z: 30,
+                }}
               >
                 {skill.icon}
               </motion.div>
-              <h3 className="font-semibold text-center mb-3 group-hover:text-gradient-blue transition-all duration-300">
+              <h3 className="font-semibold text-center mb-3 group-hover:text-gradient-blue transition-all duration-300 relative z-10">
                 {skill.name}
               </h3>
-              <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+              <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden relative z-10">
                 <motion.div
                   className="h-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
                   initial={{ width: 0 }}
@@ -102,7 +124,7 @@ export default function Skills() {
                   transition={{ duration: 1.2, delay: index * 0.08 + 0.4, ease: 'easeOut' }}
                 />
               </div>
-              <span className="text-xs text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">{skill.level}%</span>
+              <span className="text-xs text-gray-400 mt-2 group-hover:text-gray-300 transition-colors relative z-10">{skill.level}%</span>
             </motion.div>
           ))}
         </div>
