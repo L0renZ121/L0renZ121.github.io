@@ -55,7 +55,7 @@ export default function LoadingScreen() {
               transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <h1 className="text-6xl md:text-7xl font-bold">
-                <span className="text-gradient animate-gradient">Abhi</span>
+                <span className="text-gradient animate-gradient">AK</span>
               </h1>
 
               {/* Flowing line animation from left to right */}
