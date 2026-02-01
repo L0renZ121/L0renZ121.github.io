@@ -1,127 +1,112 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-
-const skills = [
-  { title: 'HTML5 & CSS', desc: 'Semantic markup, responsive design.' },
-  { title: 'JavaScript', desc: 'Animations, interactivity, DOM.' },
-  { title: 'React', desc: 'Components, state, optimization.' },
-  { title: 'Design Tools', desc: 'Figma, prototyping, systems.' },
-  { title: 'Performance', desc: 'Core Web Vitals, optimization.' },
-  { title: 'Accessibility', desc: 'WCAG, semantic HTML, inclusive.' },
-];
-
-const textVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: i * 0.05 },
-  }),
-};
+import { motion } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
+import { Code2, Palette, Rocket, Users } from 'lucide-react'
 
 export default function About() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
-  };
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const skillVariants = {
-    hidden: { opacity: 0, y: 20, rotateX: 90 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: { duration: 0.6, delay: i * 0.08, type: 'spring', stiffness: 100 },
-    }),
-  };
+  const features = [
+    {
+      icon: <Code2 className="w-8 h-8" />,
+      title: 'Clean Code',
+      description: 'Writing maintainable, scalable code that stands the test of time'
+    },
+    {
+      icon: <Palette className="w-8 h-8" />,
+      title: 'Beautiful Design',
+      description: 'Creating stunning interfaces that users love to interact with'
+    },
+    {
+      icon: <Rocket className="w-8 h-8" />,
+      title: 'Fast Performance',
+      description: 'Optimizing for speed and efficiency in every project'
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: 'User-Focused',
+      description: 'Putting user experience at the heart of every decision'
+    }
+  ]
 
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
-      {/* Background gradient animation */}
-      <motion.div
-        className="absolute -right-96 top-0 w-96 h-96 bg-[#00d9ff]/5 rounded-full blur-3xl"
-        animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.h2
+    <section id="about" className="py-20 relative" ref={ref}>
+      <div className="container mx-auto px-4">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-bold mb-16"
+          className="text-center mb-16"
         >
-          About <motion.span className="text-[#00d9ff]">Me</motion.span>
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">About Me</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            I'm a passionate developer who loves turning complex problems into simple, beautiful solutions
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 mb-24">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.8 }}
-            className="space-y-4"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="text-lg text-gray-400 leading-relaxed">
-              I've been designing and building digital experiences since 2019. My focus: clean interfaces, responsive systems, and lightning-fast performance.
-            </p>
-            <p className="text-gray-600">
-              Based in Kathmandu. Available for full-time roles and freelance projects.
-            </p>
+            <div className="glass p-8 rounded-2xl glow">
+              <h3 className="text-2xl font-bold mb-4 text-gradient-blue">My Journey</h3>
+              <p className="text-gray-300 mb-4">
+                With over 5 years of experience in web development, I've had the privilege of working on diverse projects
+                ranging from startups to enterprise applications.
+              </p>
+              <p className="text-gray-300 mb-4">
+                I specialize in building responsive, accessible, and performant web applications using modern technologies
+                like React, Next.js, and TypeScript.
+              </p>
+              <p className="text-gray-300">
+                When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
+                or sharing knowledge with the developer community.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="space-y-4"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="grid grid-cols-2 gap-4"
           >
-            <p className="text-lg text-gray-400 leading-relaxed">
-              I combine UI/UX strategy with performant front-end code. Whether it's a landing page or a full product, I prioritize clarity, emotion, and speed.
-            </p>
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                className="glass p-6 rounded-xl hover:glow-cyan transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -5 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+              >
+                <div className="text-purple-400 mb-3">{feature.icon}</div>
+                <h4 className="font-semibold mb-2">{feature.title}</h4>
+                <p className="text-sm text-gray-400">{feature.description}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl font-bold mb-12"
-        >
-          Skills
-        </motion.h3>
-
         <motion.div
-          className="grid md:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center"
         >
-          {skills.map((skill, i) => (
-            <motion.div
-              key={i}
-              custom={i}
-              variants={skillVariants}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 0 30px rgba(0, 217, 255, 0.2)',
-                borderColor: '#00d9ff',
-              }}
-              className="p-6 border border-white/10 rounded-lg transition cursor-pointer group"
-              style={{ perspective: '1000px' }}
-            >
-              <motion.div whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 400 }}>
-                <h4 className="font-semibold mb-2 group-hover:text-[#00d9ff] transition">{skill.title}</h4>
-              </motion.div>
-              <p className="text-gray-600 text-sm">{skill.desc}</p>
-            </motion.div>
-          ))}
+          <a
+            href="/resume.pdf"
+            className="inline-block px-8 py-4 glass rounded-full font-semibold hover:glow-cyan transition-all duration-300"
+          >
+            Download Resume
+          </a>
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

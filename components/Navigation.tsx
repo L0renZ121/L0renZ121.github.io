@@ -1,110 +1,106 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useState, useEffect } from 'react'
+import { Menu, X, Github, Linkedin, Mail } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navigation() {
-  const [activeSection, setActiveSection] = useState('');
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
     const handleScroll = () => {
-      setIsScrolling(true);
-      clearTimeout(scrollTimeout);
+      setScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-      // Update scroll progress
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      setScrollProgress(scrollPercent);
-
-      // Update active section
-      const sections = ['work', 'about', 'contact'];
-      let current = '';
-
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
-        if (element && element.offsetTop - 200 <= window.scrollY) {
-          current = section;
-        }
-      });
-
-      setActiveSection(current);
-
-      scrollTimeout = setTimeout(() => {
-        setIsScrolling(false);
-      }, 1500);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(scrollTimeout);
-    };
-  }, []);
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' },
+  ]
 
   return (
-    <>
-      {/* Scroll progress bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00d9ff] via-purple-500 to-[#00d9ff] z-50"
-        style={{ scaleX: scrollProgress / 100 }}
-        initial={{ scaleX: 0 }}
-        transition={{ type: 'tween', ease: 'easeOut' }}
-      />
-
-      {/* Navigation bar */}
-      <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 pt-6 backdrop-blur"
-        animate={{
-          backgroundColor: isScrolling ? 'rgba(15, 15, 15, 0.95)' : 'rgba(15, 15, 15, 0.7)',
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-          <motion.div
-            className="font-bold text-lg tracking-tight"
-            animate={{
-              color: isScrolling ? '#00d9ff' : '#ffffff',
-              textShadow: isScrolling ? '0 0 20px rgba(0, 217, 255, 0.5)' : 'none',
-            }}
-            transition={{ duration: 0.3 }}
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'glass py-4' : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between">
+          <motion.a
+            href="#home"
+            className="text-2xl font-bold text-gradient"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            ABHI
-          </motion.div>
+            Abhi
+          </motion.a>
 
-          <ul className="flex gap-10 text-sm">
-            {['Work', 'About', 'Contact'].map((item) => {
-              const isActive = activeSection === item.toLowerCase();
-              return (
-                <li key={item}>
-                  <Link href={`#${item.toLowerCase()}`} className="relative group">
-                    <motion.span
-                      animate={{
-                        color: isActive ? '#00d9ff' : '#a3a3a3',
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="transition-colors"
-                    >
-                      {item}
-                    </motion.span>
-                    <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00d9ff] to-cyan-400"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: isActive ? 1 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ originX: 0 }}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="text-white/80 hover:text-white transition-colors relative group"
+                whileHover={{ scale: 1.05 }}
+              >
+                {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+              </motion.a>
+            ))}
+          </div>
+
+          <div className="hidden md:flex items-center space-x-4">
+            <motion.a href="https://github.com/L0renZ121" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
+              <Github size={20} />
+            </motion.a>
+            <motion.a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
+              <Linkedin size={20} />
+            </motion.a>
+            <motion.a href="mailto:abhi@example.com" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
+              <Mail size={20} />
+            </motion.a>
+          </div>
+
+          <motion.button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)} whileTap={{ scale: 0.9 }}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
         </div>
-      </motion.nav>
-    </>
-  );
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden mt-4 glass rounded-lg p-4"
+            >
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-3 text-white/80 hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {item.name}
+                </motion.a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.nav>
+  )
 }
