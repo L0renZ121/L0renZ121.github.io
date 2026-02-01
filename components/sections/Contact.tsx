@@ -21,7 +21,7 @@ export default function Contact() {
   const contactInfo = [
     { icon: <Mail />, label: 'Email', value: 'khatiwadaabhi123@gmail.com', href: 'mailto:khatiwadaabhi123@gmail.com' },
     { icon: <Github />, label: 'GitHub', value: 'AA-maker-dev', href: 'https://github.com/AA-maker-dev' },
-    { icon: <MapPin />, label: 'Location', value: 'Hattiban, Lalitpur', href: '#' },
+    { icon: <MapPin />, label: 'Location', value: 'Hattiban, Lalitpur', href: 'https://www.google.com/maps/search/?api=1&query=Hattiban,+Lalitpur,+Nepal' },
   ]
 
   const socialLinks = [
