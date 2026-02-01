@@ -97,18 +97,12 @@ export default function Skills() {
                 className="text-6xl mb-4 relative z-10"
                 style={{ 
                   color: skill.color,
-                  transformStyle: 'preserve-3d',
                 }}
                 animate={isInView ? { y: [0, -8, 0] } : {}}
                 transition={{
                   duration: 2 + index * 0.1,
                   repeat: Infinity,
                   ease: 'easeInOut',
-                }}
-                whileHover={{ 
-                  scale: 1.3,
-                  rotateY: 360,
-                  z: 30,
                 }}
               >
                 {skill.icon}
