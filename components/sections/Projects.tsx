@@ -76,6 +76,14 @@ export default function Projects() {
             >
               {/* Project Image */}
               <div className="relative h-64 bg-gradient-to-br overflow-hidden" style={{ background: `linear-gradient(to bottom right, ${project.gradient.split(' ')[1]}, ${project.gradient.split(' ')[3]})` }}>
+                {project.image && !project.image.includes('placeholder') && (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                )}
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-300" />
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
