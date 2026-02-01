@@ -16,7 +16,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             className="mb-6"
           >
             <motion.span
@@ -36,7 +36,7 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
           >
             Hi, I'm{' '}
@@ -52,7 +52,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4"
           >
             <motion.span className="text-gradient-blue inline-block hover:scale-105 transition-transform duration-300">
@@ -65,18 +65,18 @@ export default function Hero() {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             I craft beautiful, functional, and user-friendly digital experiences that make people's lives easier and more enjoyable.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a
