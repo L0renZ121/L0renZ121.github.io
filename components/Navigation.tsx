@@ -23,6 +23,7 @@ export default function Navigation() {
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Portfolio', href: 'https://abhi88.com.np', external: true },
   ]
 
   return (
@@ -50,6 +51,8 @@ export default function Navigation() {
               <motion.a
                 key={item.name}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 className="text-white/80 hover:text-white transition-colors relative group"
                 whileHover={{ scale: 1.05 }}
               >
@@ -88,6 +91,8 @@ export default function Navigation() {
                 <motion.a
                   key={item.name}
                   href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   className="block py-3 text-white/80 hover:text-white"
                   onClick={() => setIsOpen(false)}
                   initial={{ opacity: 0, x: -20 }}
