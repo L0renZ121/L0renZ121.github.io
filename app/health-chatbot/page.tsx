@@ -1,7 +1,7 @@
 export default function HealthChatbot() {
   return (
     <iframe
-      src="/health-chatbot-project/index.html"
+      src="/health-chatbot-project/frontend/build/index.html"
       style={{
         width: '100vw',
         height: '100vh',

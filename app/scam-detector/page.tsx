@@ -1,7 +1,7 @@
 export default function ScamDetector() {
   return (
     <iframe
-      src="/scam-detector-project/index.html"
+      src="/scam-detector-project/frontend/build/index.html"
       style={{
         width: '100vw',
         height: '100vh',
