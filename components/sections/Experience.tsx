@@ -11,7 +11,7 @@ export default function Experience() {
 
   const experiences = [
     {
-      company: 'Tech Innovators Inc.',
+      company: 'Freelance',
       role: 'Senior Full Stack Developer',
       period: '2022 - Present',
       description: 'Leading development of cloud-based applications using modern web technologies. Architecting scalable solutions and mentoring junior developers.',
@@ -22,7 +22,7 @@ export default function Experience() {
       ]
     },
     {
-      company: 'Digital Solutions Co.',
+      company: 'Freelance',
       role: 'Full Stack Developer',
       period: '2020 - 2022',
       description: 'Developed and maintained multiple client projects ranging from e-commerce platforms to enterprise applications.',
@@ -33,7 +33,7 @@ export default function Experience() {
       ]
     },
     {
-      company: 'StartUp Ventures',
+      company: 'Freelance',
       role: 'Frontend Developer',
       period: '2019 - 2020',
       description: 'Focused on creating intuitive user interfaces and implementing responsive designs for various web applications.',
