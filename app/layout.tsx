@@ -1,26 +1,25 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Abhi Khatiwada — Front-End Designer',
-  description: 'Bold, responsive digital experiences crafted with meticulous attention to detail.',
-  viewport: 'width=device-width, initial-scale=1',
-};
+  title: 'Abhi - Full Stack Developer & Designer',
+  description: 'Portfolio of Abhi - A passionate full-stack developer specializing in modern web technologies, UI/UX design, and creating stunning digital experiences',
+  keywords: ['portfolio', 'developer', 'web development', 'Abhi', 'full-stack', 'designer'],
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="bg-[#0f0f0f] text-white font-display">
-        <Navigation />
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-x-hidden`}>
         {children}
-        <Footer />
       </body>
     </html>
-  );
+  )
 }
