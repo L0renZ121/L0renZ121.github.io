@@ -32,7 +32,7 @@ export default function Projects() {
     {
       title: 'AI Scam Message Detector',
       description: 'Machine learning-powered system that identifies and classifies scam messages in real-time. Protects users by analyzing message content and detecting fraudulent patterns.',
-      image: '/api/placeholder/600/400',
+      image: '/thumbnails/scam-detector.png',
       tags: ['Python', 'ML', 'TensorFlow', 'NLP', 'FastAPI'],
       github: 'https://github.com/AA-maker-dev/AI-Scam-Message-Detector',
       demo: '/scam-detector',
