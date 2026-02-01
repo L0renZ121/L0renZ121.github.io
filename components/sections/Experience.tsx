@@ -12,46 +12,46 @@ export default function Experience() {
   const experiences = [
     {
       company: 'Freelance',
-      role: 'Senior Full Stack Developer',
-      period: '2022 - Present',
-      description: 'Leading development of cloud-based applications using modern web technologies. Architecting scalable solutions and mentoring junior developers.',
-      achievements: [
-        'Reduced application load time by 60% through optimization',
-        'Led team of 5 developers on major product launch',
-        'Implemented CI/CD pipeline reducing deployment time by 80%'
-      ]
-    },
-    {
-      company: 'Freelance',
       role: 'Full Stack Developer',
-      period: '2020 - 2022',
-      description: 'Developed and maintained multiple client projects ranging from e-commerce platforms to enterprise applications.',
+      period: '2024 - Present',
+      description: 'Building complete web applications with modern technologies. Handling both frontend and backend development for various projects.',
       achievements: [
-        'Built 15+ responsive web applications',
-        'Improved code quality through test-driven development',
-        'Collaborated with design team to enhance UI/UX'
+        'Developed full-stack applications from concept to deployment',
+        'Implemented responsive designs with optimal performance',
+        'Integrated payment systems and databases'
       ]
     },
     {
       company: 'Freelance',
-      role: 'Frontend Developer',
-      period: '2019 - 2020',
-      description: 'Focused on creating intuitive user interfaces and implementing responsive designs for various web applications.',
+      role: 'Front-End Designer',
+      period: '2023 - 2024',
+      description: 'Designed and developed user-friendly interfaces with focus on visual aesthetics and user experience.',
       achievements: [
-        'Developed reusable component library',
-        'Increased mobile conversion rate by 35%',
-        'Implemented accessibility standards (WCAG 2.1)'
+        'Created compelling UI/UX designs for multiple projects',
+        'Implemented animations and interactive elements',
+        'Maintained brand consistency across platforms'
       ]
     },
     {
       company: 'Freelance',
       role: 'Web Developer',
-      period: '2018 - 2019',
-      description: 'Worked with multiple clients to deliver custom web solutions and established strong foundation in web development.',
+      period: '2021 - 2023',
+      description: 'Developed responsive websites and web applications for diverse clients across multiple industries.',
       achievements: [
-        'Completed 20+ client projects successfully',
-        'Built portfolio showcasing diverse skill set',
-        'Maintained 5-star rating across all platforms'
+        'Built 20+ custom web solutions',
+        'Optimized website performance and SEO',
+        'Provided technical support and maintenance'
+      ]
+    },
+    {
+      company: 'Freelance',
+      role: 'Video Editor & Graphics Designer',
+      period: '2018 - 2024',
+      description: 'Created professional video content and graphic designs for various clients and projects.',
+      achievements: [
+        'Produced 100+ video projects with high-quality editing',
+        'Designed logos, banners, and marketing materials',
+        'Maintained strong client satisfaction and repeat business'
       ]
     }
   ]
