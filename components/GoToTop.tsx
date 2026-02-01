@@ -34,7 +34,7 @@ export default function GoToTop() {
       {isVisible && (
         <motion.button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 p-3 rounded-full glass group hover:shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300"
+          className="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-full glass group hover:shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300 flex items-center justify-center"
           initial={{ opacity: 0, scale: 0, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0, y: 20 }}
@@ -50,16 +50,12 @@ export default function GoToTop() {
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="flex items-center justify-center"
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-full blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <ArrowUp
-                size={24}
-                className="relative text-gradient transition-all duration-300 group-hover:text-gradient-blue drop-shadow-lg"
-                strokeWidth={3}
-              />
-            </div>
+            <ArrowUp
+              size={24}
+              className="text-gradient"
+              strokeWidth={2.5}
+            />
           </motion.div>
         </motion.button>
       )}
