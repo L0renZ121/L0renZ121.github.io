@@ -17,7 +17,7 @@ export default function Projects() {
       image: '/thumbnails/SentinelAI.png',
       tags: ['AI/ML', 'FastAPI', 'Leaflet', 'Geopy', 'JavaScript'],
       github: 'https://github.com/AA-maker-dev/Disaster-Early-Help-Platform',
-      demo: 'https://abhi88.com.np/sentinel-ai',
+      demo: '/sentinel-ai',
       gradient: 'from-red-500 to-orange-500'
     },
     {
@@ -44,7 +44,7 @@ export default function Projects() {
       image: '/api/placeholder/600/400',
       tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
       github: 'https://github.com/L0renZ121/L0renZ121.github.io',
-      demo: 'https://abhi88.com.np/#home',
+      demo: '/#home',
       gradient: 'from-green-500 to-emerald-500'
     },
   ]
