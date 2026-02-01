@@ -33,6 +33,17 @@ jobs:
       - name: Build with Next.js
         run: npm run build
 
+      - name: Create out directory
+        run: |
+          mkdir -p out
+          touch out/.nojekyll
+          echo "abhi88.com.np" > out/CNAME
+
+      - name: Copy build artifacts
+        run: |
+          cp -r .next/static out/_next 2>/dev/null || true
+          cp -r public/* out/ 2>/dev/null || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
