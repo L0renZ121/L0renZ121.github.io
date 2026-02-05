@@ -114,11 +114,3 @@ export default function LoadingScreen() {
     </AnimatePresence>
   )
 }
-          >
-            <source src="/videos/16-9_1.mp4" type="video/mp4" />
-          </video>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
