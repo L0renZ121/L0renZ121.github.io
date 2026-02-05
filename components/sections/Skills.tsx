@@ -107,18 +107,9 @@ export default function Skills() {
               >
                 {skill.icon}
               </motion.div>
-              <h3 className="font-semibold text-center mb-3 group-hover:text-gradient-blue transition-all duration-300 relative z-10">
+              <h3 className="font-semibold text-center group-hover:text-gradient-blue transition-all duration-300 relative z-10">
                 {skill.name}
               </h3>
-              <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden relative z-10">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
-                  initial={{ width: 0 }}
-                  animate={isInView ? { width: `${skill.level}%` } : {}}
-                  transition={{ duration: 1.2, delay: index * 0.08 + 0.4, ease: 'easeOut' }}
-                />
-              </div>
-              <span className="text-xs text-gray-400 mt-2 group-hover:text-gray-300 transition-colors relative z-10">{skill.level}%</span>
             </motion.div>
           ))}
         </div>
