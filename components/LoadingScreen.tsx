@@ -8,23 +8,27 @@ export default function LoadingScreen() {
   const [isFading, setIsFading] = useState(false)
 
   useEffect(() => {
-    const videoTimer = setTimeout(() => {
+    // Set a timeout to start fading after 7 seconds
+    const fadeTimer = setTimeout(() => {
       setIsFading(true)
-    }, 8000) // Start fade after 8 seconds
+    }, 7000)
 
+    // Set a timeout to completely hide after 8 seconds
     const hideTimer = setTimeout(() => {
       setShowVideo(false)
-    }, 9000) // Hide after fade completes (1 second fade)
+    }, 8000)
 
     return () => {
-      clearTimeout(videoTimer)
+      clearTimeout(fadeTimer)
       clearTimeout(hideTimer)
     }
   }, [])
 
   const handleVideoEnd = () => {
+    // If video ends before 8 seconds, fade out and hide immediately
     setIsFading(true)
-    setTimeout(() => setShowVideo(false), 1000)
+    const timer = setTimeout(() => setShowVideo(false), 500)
+    return () => clearTimeout(timer)
   }
 
   return (
@@ -33,16 +37,20 @@ export default function LoadingScreen() {
         <motion.div
           initial={{ opacity: 1 }}
           animate={{ opacity: isFading ? 0 : 1 }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          className="fixed inset-0 bg-black z-50 flex items-center justify-center"
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden"
         >
           <video 
             autoPlay 
             muted 
+            playsInline
             className="w-full h-full object-cover"
             onEnded={handleVideoEnd}
+            style={{ display: 'block' }}
           >
             <source src="/videos/16-9_1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
         </motion.div>
       )}
