@@ -37,6 +37,7 @@ export default function Navigation() {
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Another Portfolio', href: '/another-portfolio' },
     { name: 'Portfolio', href: 'https://abhi88.com.np', external: true },
   ]
 
