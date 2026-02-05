@@ -150,6 +150,7 @@ async function getAIResponse(message) {
     return response.data.response.trim();
   } catch (error) {
     console.error('Ollama Error:', error.message);
+    console.warn('⚠️  Ollama is not running. Make sure to start Ollama before using AI features.');
     // Fallback to pattern matching if Ollama fails
     return findMatchingResponse(message);
   }
