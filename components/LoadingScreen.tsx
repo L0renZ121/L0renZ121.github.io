@@ -49,7 +49,12 @@ export default function LoadingScreen() {
             muted 
             playsInline
             preload="metadata"
-            className="w-full h-full object-cover"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            style={{
+              minWidth: '100%',
+              minHeight: '100%',
+              objectFit: 'cover'
+            }}
             onCanPlay={handleCanPlay}
             onEnded={handleVideoEnded}
             onError={handleVideoError}
