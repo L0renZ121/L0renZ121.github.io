@@ -39,15 +39,6 @@ export default function Projects() {
       gradient: 'from-cyan-500 to-blue-500'
     },
     {
-      title: 'Another Portfolio',
-      description: 'A dedicated portfolio space for showcasing additional projects, skills, and creative work. This is your personal folder to add code and content for another portfolio website.',
-      image: '/api/placeholder/600/400',
-      tags: ['Your Portfolio', 'Your Projects', 'Your Skills'],
-      github: 'https://github.com/L0renZ121/L0renZ121.github.io',
-      demo: '/another-portfolio',
-      gradient: 'from-amber-500 to-orange-500'
-    },
-    {
       title: 'Portfolio Website',
       description: 'A modern and responsive portfolio website showcasing my skills, projects, and experience. Built with Next.js, featuring smooth animations, interactive particle backgrounds, and a clean design.',
       image: '/api/placeholder/600/400',

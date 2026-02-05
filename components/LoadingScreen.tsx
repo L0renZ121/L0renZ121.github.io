@@ -17,7 +17,7 @@ export default function LoadingScreen() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden intro-overlay">
       <video 
         autoPlay 
         muted 
