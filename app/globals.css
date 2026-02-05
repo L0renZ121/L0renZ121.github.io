@@ -296,6 +296,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Page Transition */
+.page-transition {
+  animation: pageTransitionIn 0.8s ease-out 0.3s both;
+}
+
+@keyframes pageTransitionIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes glow {
   0%, 100% {
     text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
