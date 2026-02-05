@@ -4,15 +4,17 @@ import { useState, useEffect } from 'react'
 
 export default function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true)
+  const [durationMs, setDurationMs] = useState<number | null>(null)
 
   useEffect(() => {
-    // Hide after 6 seconds
+    if (!durationMs) return
+
     const timer = setTimeout(() => {
       setIsVisible(false)
-    }, 6000)
+    }, durationMs)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [durationMs])
 
   if (!isVisible) return null
 
@@ -23,6 +25,12 @@ export default function LoadingScreen() {
         muted 
         playsInline
         className="w-full h-full object-cover"
+        onLoadedMetadata={(e) => {
+          const seconds = e.currentTarget.duration
+          if (Number.isFinite(seconds) && seconds > 0) {
+            setDurationMs(seconds * 1000)
+          }
+        }}
         onEnded={() => setIsVisible(false)}
       >
         <source src="/videos/16-9_1.mp4" type="video/mp4" />
