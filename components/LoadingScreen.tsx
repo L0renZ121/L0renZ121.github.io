@@ -4,34 +4,34 @@ import { useState, useEffect } from 'react'
 
 export default function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true)
-  const [durationMs, setDurationMs] = useState<number | null>(null)
+  const [hideAfterMs, setHideAfterMs] = useState(8000)
 
   useEffect(() => {
-    if (!durationMs) return
-
     const timer = setTimeout(() => {
       setIsVisible(false)
-    }, durationMs)
+    }, hideAfterMs)
 
     return () => clearTimeout(timer)
-  }, [durationMs])
+  }, [hideAfterMs])
 
   if (!isVisible) return null
 
   return (
-    <div className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden intro-overlay">
+    <div className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden">
       <video 
         autoPlay 
         muted 
         playsInline
+        preload="auto"
         className="w-full h-full object-cover"
         onLoadedMetadata={(e) => {
           const seconds = e.currentTarget.duration
           if (Number.isFinite(seconds) && seconds > 0) {
-            setDurationMs(seconds * 1000)
+            setHideAfterMs(seconds * 1000)
           }
         }}
         onEnded={() => setIsVisible(false)}
+        onError={() => setIsVisible(false)}
       >
         <source src="/videos/16-9_1.mp4" type="video/mp4" />
       </video>
