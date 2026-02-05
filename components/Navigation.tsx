@@ -60,30 +60,66 @@ export default function Navigation() {
             Abhi Khatiwada
           </motion.a>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
-                className="text-white/80 hover:text-white transition-colors relative group"
-                whileHover={{ scale: 1.05 }}
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 group-hover:w-full transition-all duration-300"></span>
-              </motion.a>
-            ))}
+          <div className="hidden md:flex items-center space-x-1">
+            {navItems.map((item) => {
+              const isActive = item.href === `#${activeSection}`
+              return (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  className={`px-4 py-2 rounded-lg transition-all duration-500 relative group ${
+                    isActive ? 'text-white' : 'text-white/70 hover:text-white'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  {item.name}
+                  <motion.span 
+                    className="absolute bottom-1 left-1/2 h-0.5 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-full"
+                    initial={{ width: 0, x: '-50%' }}
+                    animate={{ 
+                      width: isActive ? '60%' : 0,
+                      x: '-50%'
+                    }}
+                    whileHover={{ width: '60%' }}
+                    transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                  />
+                </motion.a>
+              )
+            })}
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <motion.a href="https://github.com/AA-maker-dev" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white" whileHover={{ scale: 1.1 }}>
+            <motion.a 
+              href="https://github.com/AA-maker-dev" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/70 hover:text-white transition-colors duration-300" 
+              whileHover={{ scale: 1.15, y: -2 }}
+              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+            >
               <Github size={20} />
             </motion.a>
-            <motion.a href="https://www.instagram.com/abhi_khatiwada/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-pink-400" whileHover={{ scale: 1.1 }}>
+            <motion.a 
+              href="https://www.instagram.com/abhi_khatiwada/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/70 hover:text-pink-400 transition-colors duration-300" 
+              whileHover={{ scale: 1.15, y: -2 }}
+              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+            >
               <Instagram size={20} />
             </motion.a>
-            <motion.a href="https://www.facebook.com/khatiwada.abhi/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-blue-400" whileHover={{ scale: 1.1 }}>
+            <motion.a 
+              href="https://www.facebook.com/khatiwada.abhi/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/70 hover:text-blue-400 transition-colors duration-300" 
+              whileHover={{ scale: 1.15, y: -2 }}
+              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+            >
               <Facebook size={20} />
             </motion.a>
           </div>
