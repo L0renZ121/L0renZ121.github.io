@@ -9,6 +9,27 @@ export const metadata: Metadata = {
   title: 'Abhi - Full Stack Developer & Designer',
   description: 'Portfolio of Abhi - A passionate full-stack developer specializing in modern web technologies, UI/UX design, and creating stunning digital experiences',
   keywords: ['portfolio', 'developer', 'web development', 'Abhi', 'full-stack', 'designer'],
+  openGraph: {
+    title: 'Abhi - Full Stack Developer & Designer',
+    description: 'Portfolio of Abhi - A passionate full-stack developer specializing in modern web technologies, UI/UX design, and creating stunning digital experiences',
+    url: 'https://www.abhi88.com.np',
+    siteName: 'Abhi Portfolio',
+    type: 'website',
+    images: [
+      {
+        url: '/thumbnails/portfolio-preview.png',
+        width: 1200,
+        height: 630,
+        alt: 'Abhi - Full Stack Developer Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Abhi - Full Stack Developer & Designer',
+    description: 'Portfolio of Abhi - A passionate full-stack developer specializing in modern web technologies, UI/UX design, and creating stunning digital experiences',
+    images: ['/thumbnails/portfolio-preview.png'],
+  },
 }
 
 export default function RootLayout({
