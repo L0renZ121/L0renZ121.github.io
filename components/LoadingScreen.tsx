@@ -5,15 +5,35 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true)
-  const [hideAfterMs, setHideAfterMs] = useState(8000)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Fallback timer: Always hide after 10 seconds max
+    const fallbackTimer = setTimeout(() => {
       setIsVisible(false)
-    }, hideAfterMs)
+    }, 10000)
 
-    return () => clearTimeout(timer)
-  }, [hideAfterMs])
+    return () => clearTimeout(fallbackTimer)
+  }, [])
+
+  const handleVideoEnded = () => {
+    setIsVisible(false)
+  }
+
+  const handleVideoError = () => {
+    // If video fails to load, hide immediately
+    setIsVisible(false)
+  }
+
+  const handleCanPlay = () => {
+    // Video is ready to play - this helps with timing
+    const videoElement = document.querySelector('video') as HTMLVideoElement
+    if (videoElement && videoElement.duration > 0) {
+      // Schedule hide based on actual video duration
+      setTimeout(() => {
+        setIsVisible(false)
+      }, (videoElement.duration * 1000) + 500)
+    }
+  }
 
   return (
     <AnimatePresence mode="wait">
@@ -28,16 +48,11 @@ export default function LoadingScreen() {
             autoPlay 
             muted 
             playsInline
-            preload="auto"
+            preload="metadata"
             className="w-full h-full object-cover"
-            onLoadedMetadata={(e) => {
-              const seconds = e.currentTarget.duration
-              if (Number.isFinite(seconds) && seconds > 0) {
-                setHideAfterMs(seconds * 1000)
-              }
-            }}
-            onEnded={() => setIsVisible(false)}
-            onError={() => setIsVisible(false)}
+            onCanPlay={handleCanPlay}
+            onEnded={handleVideoEnded}
+            onError={handleVideoError}
           >
             <source src="/videos/16-9_1.mp4" type="video/mp4" />
           </video>
