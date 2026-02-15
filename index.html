@@ -38,8 +38,6 @@
       background: var(--bg-deep);
       color: var(--text);
       overflow-x: hidden;
-      /* Prevent scrolling during load */
-      overflow-y: hidden;
     }
 
     body.loaded {
@@ -1024,18 +1022,6 @@
   
   <!-- Rain Canvas -->
   <canvas id="rain-canvas"></canvas>
-
-  <!-- Loader Section -->
-  <div id="loader">
-    <div class="loader-scanlines"></div>
-    <div class="loader-content">
-      <div class="loader-logo loader-glitch" data-text="ABHI::DEV">ABHI::DEV</div>
-      <div class="loader-status" id="loaderStatus">INITIALIZING SYSTEM...</div>
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- Navigation -->
   <nav class="nav">
