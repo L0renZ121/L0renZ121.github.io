@@ -1516,32 +1516,6 @@
     }
     
     
-    function renderTimeline() {
-      const container = document.getElementById('timeline-container');
-      
-      experiences.forEach((exp, index) => {
-        const item = document.createElement('div');
-        item.className = 'timeline-item relative pl-14 pb-12 reveal';
-        item.style.transitionDelay = (index * 0.2) + 's';
-        
-        item.innerHTML = `
-          <div class="timeline-dot" style="top: 8px;"></div>
-          <div class="glass-strong rounded-2xl p-6">
-            <div class="flex flex-wrap items-center gap-2 mb-2">
-              <span class="text-xs font-mono text-[var(--accent-primary)]">${exp.period}</span>
-            </div>
-            <h3 class="text-xl font-semibold">${exp.role}</h3>
-            <p class="text-[var(--accent-secondary)] mb-3">${exp.company}</p>
-            <p class="text-[var(--fg-secondary)] text-sm mb-4">${exp.description}</p>
-            <div class="flex flex-wrap gap-2">
-              ${exp.tech.map(t => `<span class="px-3 py-1 text-xs font-mono glass rounded-full">${t}</span>`).join('')}
-            </div>
-          </div>
-        `;
-        
-        container.appendChild(item);
-      });
-    }
     
     function renderCertifications() {
       const container = document.getElementById('certs-container');
@@ -1918,7 +1892,6 @@
     async function init() {
       // Render content first
       renderSkills();
-      renderTimeline();
       renderCertifications();
       
       // Initialize all features
