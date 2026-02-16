@@ -1191,7 +1191,14 @@
       { name: 'Navigate to Experience', action: () => scrollToSection('experience'), shortcut: 'g e' },
       { name: 'Navigate to Contact', action: () => scrollToSection('contact'), shortcut: 'g c' },
       { name: 'Toggle Theme', action: toggleTheme, shortcut: 't' },
-      { name: 'Download Resume', action: () => alert('Resume download initiated!'), shortcut: 'd' },
+      { name: 'Download Resume', action: () => {
+        const link = document.createElement('a');
+        link.href = 'abhi.pdf';
+        link.download = 'abhi.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, shortcut: 'd' },
       { name: 'GitHub Profile', action: () => window.open('https://github.com/aa-maker-dev', '_blank'), shortcut: 'g h' }
     ];
     
