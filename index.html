@@ -926,14 +926,22 @@
   
   <!-- Certifications Section -->
   <section id="certifications" class="py-32 px-4 relative">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-3xl mx-auto">
       <div class="text-center mb-16 reveal">
-        <span class="font-mono text-sm text-[var(--accent-primary)] mb-4 block">05. Certifications</span>
-        <h2 class="text-4xl md:text-5xl font-bold">Achievements</h2>
+        <span class="font-mono text-sm text-[var(--accent-primary)] mb-4 block">05. Certification</span>
+        <h2 class="text-4xl md:text-5xl font-bold">My Badge</h2>
+        <p class="text-[var(--fg-muted)] mt-4 max-w-xl mx-auto">Proudly showcasing my real-world cybersecurity achievement from TryHackMe.</p>
       </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger" id="certs-container">
-        <!-- Certifications populated by JS -->
+      <div class="flex justify-center items-center">
+        <div class="glass-strong rounded-3xl p-10 text-center shadow-xl border-2 border-[var(--accent-primary)] hover:scale-105 transition-transform cursor-default flex flex-col items-center bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-tertiary)]">
+          <img src="https://assets.tryhackme.com/img/badges/firstfour.png" alt="First 4 Rooms Badge" style="max-width:200px; width:100%; height:auto; margin-bottom:1.5rem; border-radius: 1rem; box-shadow: 0 4px 32px 0 rgba(0,212,255,0.15);"/>
+          <a href="https://tryhackme.com/AbhiKhatiwada/badges/first-4-rooms?utm_campaign=social_share&utm_medium=social&utm_content=badge&utm_source=copy&sharerId=696111927ade7f19ae5499aa" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block px-5 py-2 rounded-lg font-mono text-sm bg-[var(--accent-primary)] text-black hover:bg-[var(--accent-secondary)] transition-colors shadow">
+            View My TryHackMe Badge
+          </a>
+          <h3 class="font-bold text-xl mb-2 text-[var(--accent-primary)]">TryHackMe Badge</h3>
+          <p class="text-base text-[var(--fg-secondary)] mb-2">Cybersecurity Certification</p>
+          <p class="text-xs text-[var(--accent-primary)]">Issued by TryHackMe</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1914,8 +1922,7 @@
     
     async function init() {
       // Render content first
-      renderSkills();
-      renderCertifications();
+      // Skills and certifications are now static HTML
       
       // Initialize all features
       initLoader();
