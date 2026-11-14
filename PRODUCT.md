@@ -8,7 +8,7 @@ web
 
 ## Users
 
-People evaluating Abhi Khatiwada's work, potential collaborators, and visitors interested in AI/ML, full-stack development, cybersecurity, and automation.
+People evaluating Abhi Khatiwada's frontend engineering and design work, potential collaborators, and visitors interested in responsive UI, interaction design, and accessible web experiences.
 
 ## Product Purpose
 
@@ -16,7 +16,7 @@ This personal portfolio presents Abhi's projects, technical skills, experience, 
 
 ## Positioning
 
-The portfolio connects practical software projects with a broad maker profile across AI, web development, security, and automation.
+The portfolio foregrounds frontend engineering, visual systems, responsive interfaces, interaction design, and accessibility, with AI/ML, full-stack development, cybersecurity, and automation presented as supporting capabilities.
 
 ## Capabilities and Constraints
 
@@ -24,11 +24,10 @@ The site is a static web page. It includes section navigation, theme switching, 
 
 ## Brand Commitments
 
-Preserve the name Abhi Khatiwada, the aa-maker-dev identity, existing factual copy, existing project links, existing resume asset, and existing profile image.
+Preserve the name Abhi Khatiwada, the aa-maker-dev identity, existing factual copy, existing project links, and existing resume asset. The personal profile photo is intentionally not displayed.
 
 ## Evidence on Hand
 
-- `my_image.png` — profile image
 - `abhi.pdf` — resume
 - Existing project, certification, social, and contact links in `index.html`
 

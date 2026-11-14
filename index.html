@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111312">
-  <meta name="description" content="Portfolio of Abhi Khatiwada (aa-maker-dev) — AI/ML, Full Stack Developer, Cybersecurity, and Open Source Enthusiast from Nepal.">
-  <title>Abhi Khatiwada — AI, Full Stack & Security</title>
+  <meta name="description" content="Portfolio of Abhi Khatiwada (aa-maker-dev) — frontend engineer and designer building responsive, accessible interfaces from Nepal.">
+  <title>Abhi Khatiwada — Frontend Engineer & Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -111,7 +111,12 @@
     .section-heading p { max-width: 370px; margin: 0; color: var(--muted); }
     .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; align-items: start; }
     .portrait { position: relative; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
-    .portrait img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 14px; background: var(--panel-2); }
+    .portrait-mark { position: relative; display: grid; place-items: center; aspect-ratio: 1; overflow: hidden; border-radius: 14px; background: var(--panel-2); }
+    .portrait-mark::before, .portrait-mark::after { content: ""; position: absolute; border: 1px solid var(--coral); border-radius: 50%; }
+    .portrait-mark::before { width: 72%; aspect-ratio: 1; transform: translate(-18%, -14%); }
+    .portrait-mark::after { width: 42%; aspect-ratio: 1; transform: translate(58%, 54%); border-color: var(--lime); }
+    .portrait-initial { position: relative; z-index: 1; color: var(--lime); font-size: clamp(5rem, 14vw, 9rem); font-weight: 700; line-height: 1; letter-spacing: -.12em; }
+    .portrait-label { position: absolute; z-index: 1; right: 18px; bottom: 18px; color: var(--muted); font: 10px "Space Mono", monospace; text-transform: uppercase; }
     .portrait-caption { display: flex; justify-content: space-between; gap: 16px; padding: 16px 4px 2px; color: var(--quiet); font: 11px "Space Mono", monospace; text-transform: uppercase; }
     .about-copy { color: var(--muted); font-size: 1.12rem; }
     .fact-list { display: grid; gap: 0; margin: 30px 0; border-top: 1px solid var(--line); }
@@ -228,7 +233,7 @@
   OWN-WORLD: Ink, paper-like panels, lime signal marks, coral alerts, and mono annotations.
   STORY: Visitors quickly understand Abhi's focus, inspect proof, then choose a project or start a conversation.
   FIRST VIEWPORT: A decisive statement on the left and a tactile orbit note on the right, with two clear actions.
-  FORM: Editorial signal lab; a structured portfolio with one interactive command layer and direct project filtering.
+  FORM: Editorial signal lab; a frontend-focused portfolio with one interactive command layer and direct project filtering.
   -->
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="topbar" id="navbar">
@@ -251,8 +256,8 @@
     <section class="wrap hero" id="top">
       <div class="hero-copy reveal">
         <div class="status">Open to collaborations</div>
-        <h1>Building useful things at the edge of <em>AI & the web.</em></h1>
-        <p class="hero-lede">I'm Abhi Khatiwada — an AI/ML, full-stack and cybersecurity enthusiast from Nepal. I build AI-powered tools, web apps, and automation experiments.</p>
+        <h1>Designing interfaces that make the <em>web feel clear.</em></h1>
+        <p class="hero-lede">I'm Abhi Khatiwada — a frontend engineer and designer from Nepal. I build responsive interfaces, visual systems, and thoughtful interactions, with AI, full-stack, and security skills supporting the work.</p>
         <div class="actions">
           <a class="button primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
           <a class="button secondary" href="abhi.pdf" download>Download resume <span aria-hidden="true">↓</span></a>
@@ -262,22 +267,22 @@
         <div class="orbit-ring"></div>
         <div class="hero-note">
           <div class="note-line"><span>field note  /  001</span><span>NP</span></div>
-          <strong id="typing-text">Full Stack Developer</strong>
-          <p>Exploring the overlap between intelligent systems, polished interfaces, and safer digital spaces.</p>
+          <strong id="typing-text">Frontend Engineer</strong>
+          <p>Exploring the overlap between visual craft, accessible UI engineering, and the systems that make products reliable.</p>
           <div class="note-line"><span>currently learning</span><span>RAG + cloud security</span></div>
         </div>
       </div>
     </section>
 
     <section class="wrap" id="about">
-      <div class="section-heading reveal"><h2>Curiosity, shipped.</h2><p>A practical maker with a bias toward learning in public, joining ambitious teams, and turning ideas into working systems.</p></div>
+      <div class="section-heading reveal"><h2>Interfaces, shipped.</h2><p>A practical frontend maker with a bias toward visual clarity, responsive systems, and turning rough ideas into working experiences.</p></div>
       <div class="about-grid">
-        <div class="portrait reveal"><img src="my_image.png" alt="Abhi Khatiwada"><div class="portrait-caption"><span>Abhi Khatiwada</span><span>Nepal · worldwide</span></div></div>
+        <div class="portrait reveal"><div class="portrait-mark" aria-label="Typography mark for Abhi Khatiwada"><span class="portrait-initial" aria-hidden="true">A/</span><span class="portrait-label">frontend / nepal</span></div><div class="portrait-caption"><span>Abhi Khatiwada</span><span>Nepal · worldwide</span></div></div>
         <div class="about-copy reveal">
-          <p>My work sits across AI/ML, full-stack development, cybersecurity, and open source. I enjoy the messy middle: shaping a clear idea, building the interface, connecting the system, and learning where it can be stronger.</p>
+          <p>My work starts with the interface: shaping a clear idea, building the visual system, and making every interaction feel intentional. AI/ML, full-stack development, cybersecurity, and open source are supporting capabilities that help me take a frontend idea further.</p>
           <div class="fact-list">
             <div class="fact"><b>01</b><span>Currently building AI-powered tools & full-stack web apps</span></div>
-            <div class="fact"><b>02</b><span>Passionate about AI/ML, LLMs & intelligent automation</span></div>
+            <div class="fact"><b>02</b><span>Focused on visual systems, responsive UI & interaction design</span></div>
             <div class="fact"><b>03</b><span>Active hackathon participant — shipped real-world projects</span></div>
             <div class="fact"><b>04</b><span>Exploring Cybersecurity, Ethical Hacking & Red Teaming</span></div>
             <div class="fact"><b>05</b><span>Learning LangChain, RAG pipelines & cloud security</span></div>
@@ -288,9 +293,9 @@
     </section>
 
     <section class="wrap" id="skills">
-      <div class="section-heading reveal"><h2>The toolkit behind the experiments.</h2><p>Languages, frameworks, infrastructure, and security practices I reach for when the problem calls for them.</p></div>
+      <div class="section-heading reveal"><h2>The toolkit behind the interface.</h2><p>UI engineering, design tools, accessibility, and the supporting technologies I reach for when the product needs to work beautifully.</p></div>
       <div class="skills-layout">
-        <div class="skill-intro reveal"><h3>Wide enough to connect the dots.</h3><p>From interface details to deployment pipelines, I like understanding how the pieces work together.</p><div class="skill-pills"><span class="pill">AI / ML</span><span class="pill">Full stack</span><span class="pill">Cybersecurity</span><span class="pill">Open source</span><span class="pill">Automation</span><span class="pill">Cloud</span></div></div>
+        <div class="skill-intro reveal"><h3>Frontend first, systems aware.</h3><p>I care about the details people feel: hierarchy, rhythm, responsiveness, keyboard flow, and the code that keeps those choices maintainable.</p><div class="skill-pills"><span class="pill">UI engineering</span><span class="pill">Responsive design</span><span class="pill">Accessibility</span><span class="pill">Interaction design</span><span class="pill">AI / ML</span><span class="pill">Full stack</span><span class="pill">Cybersecurity</span></div></div>
         <div class="skill-list">
           <div class="skill-group reveal"><h3>Languages</h3><div class="skill-item"><div class="skill-meta"><span>JavaScript / TypeScript</span><span>95%</span></div><div class="meter"><span style="--level:95%"></span></div></div><div class="skill-item"><div class="skill-meta"><span>Python</span><span>88%</span></div><div class="meter"><span style="--level:88%"></span></div></div><div class="skill-item"><div class="skill-meta"><span>PHP</span><span>82%</span></div><div class="meter"><span style="--level:82%"></span></div></div><div class="skill-item"><div class="skill-meta"><span>Go</span><span>70%</span></div><div class="meter"><span style="--level:70%"></span></div></div><div class="skill-item"><div class="skill-meta"><span>C / C++</span><span>65%</span></div><div class="meter"><span style="--level:65%"></span></div></div></div>
           <div class="skill-group reveal"><h3>Frontend</h3><div class="skill-item"><div class="skill-meta"><span>React / Next.js</span><span>92%</span></div><div class="meter"><span style="--level:92%"></span></div></div><div class="skill-item"><div class="skill-meta"><span>Vue / Nuxt</span><span>85%</span></div><div class="meter"><span style="--level:85%"></span></div></div><div class="skill-item"><div class="skill-meta"><span>Tailwind CSS</span><span>95%</span></div><div class="meter"><span style="--level:95%"></span></div></div><div class="skill-item"><div class="skill-meta"><span>Three.js / WebGL</span><span>75%</span></div><div class="meter"><span style="--level:75%"></span></div></div></div>
@@ -303,7 +308,7 @@
     </section>
 
     <section class="wrap" id="projects">
-      <div class="section-heading reveal"><h2>Small teams. Real problems.</h2><p>A few pinned projects that show how I think: useful outcomes, direct interfaces, and room to keep improving.</p></div>
+      <div class="section-heading reveal"><h2>Frontend work, built for people.</h2><p>A few pinned projects that show how I think: useful outcomes, direct interfaces, and room to keep improving.</p></div>
       <div class="filters reveal" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="fullstack">Full Stack</button><button class="filter" data-filter="frontend">Frontend</button><button class="filter" data-filter="security">Security</button><button class="filter" data-filter="tools">Tools</button></div>
       <div class="project-grid">
         <article class="project reveal" data-category="fullstack" data-project="disaster"><div class="project-visual"><span class="project-emoji">🆘</span><span class="project-type">full stack</span></div><h3>Disaster Early Help Platform</h3><p>A real-time disaster response platform connecting victims with helpers using geo-location & alerts.</p><div class="project-footer"><span class="project-tech">CSS</span><button class="project-link" data-open-project="disaster">Inspect →</button></div></article>
@@ -388,7 +393,7 @@
     const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("visible"); revealObserver.unobserve(entry.target); } }), { threshold: .12 });
     $$(".reveal").forEach((element) => revealObserver.observe(element));
     window.addEventListener("scroll", () => $("#navbar").classList.toggle("scrolled", window.scrollY > 12), { passive: true });
-    const roles = ["Full Stack Developer", "Cybersecurity Enthusiast", "Open Source Contributor", "Problem Solver", "Tech Explorer"];
+    const roles = ["Frontend Engineer", "Frontend Designer", "Interaction Builder", "Accessibility Advocate", "UI Problem Solver"];
     let roleIndex = 0, charIndex = 0, deleting = false;
     const typeRole = () => { const role = roles[roleIndex]; $("#typing-text").textContent = role.slice(0, charIndex); if (!deleting) { charIndex += 1; if (charIndex > role.length) { deleting = true; return setTimeout(typeRole, 1700); } } else { charIndex -= 1; if (charIndex === 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; } } setTimeout(typeRole, deleting ? 48 : 78); };
     typeRole();

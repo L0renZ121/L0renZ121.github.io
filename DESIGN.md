@@ -2,7 +2,7 @@
 
 ## Direction
 
-The portfolio is an editorial signal lab: a calm, structured alternative to the previous neon/glass dashboard. Content should feel like field notes from a curious builder, with direct paths to proof and contact.
+The portfolio is an editorial signal lab: a calm, structured alternative to the previous neon/glass dashboard. Its content should make frontend craft legible first—visual systems, responsive UI, interaction design, accessibility, and shipped interfaces—with AI, full-stack, and security as supporting depth.
 
 ## Three-color system
 
