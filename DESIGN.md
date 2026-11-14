@@ -6,7 +6,7 @@ The portfolio is an editorial signal lab: a calm, structured alternative to the 
 
 ## Three-color system
 
-- **Primary — Signal lime:** `#c9f36b` dark theme / `#5e8f20` light theme. Use for actions, focus, active states, progress, and the strongest emphasis.
+- **Primary — Signal lime:** `#c9f36b` dark theme / `#477014` light theme. Use for actions, focus, active states, progress, and the strongest emphasis.
 - **Base — Ink canvas:** `#111312` dark theme / `#f3f5ef` light theme. Use for the page field and the overall reading environment.
 - **Secondary — Signal coral:** `#ff876f` dark theme / `#c84f3b` light theme. Use sparingly for the orbit marker, status accents, and moments that need a warmer counterpoint.
 
