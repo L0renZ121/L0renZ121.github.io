@@ -109,15 +109,7 @@
     .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
     .section-heading h2 { max-width: 620px; margin: 0; font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: .98; letter-spacing: -.07em; }
     .section-heading p { max-width: 370px; margin: 0; color: var(--muted); }
-    .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; align-items: start; }
-    .portrait { position: relative; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
-    .portrait-mark { position: relative; display: grid; place-items: center; aspect-ratio: 1; overflow: hidden; border-radius: 14px; background: var(--panel-2); }
-    .portrait-mark::before, .portrait-mark::after { content: ""; position: absolute; border: 1px solid var(--coral); border-radius: 50%; }
-    .portrait-mark::before { width: 72%; aspect-ratio: 1; transform: translate(-18%, -14%); }
-    .portrait-mark::after { width: 42%; aspect-ratio: 1; transform: translate(58%, 54%); border-color: var(--lime); }
-    .portrait-initial { position: relative; z-index: 1; color: var(--lime); font-size: clamp(5rem, 14vw, 9rem); font-weight: 700; line-height: 1; letter-spacing: -.12em; }
-    .portrait-label { position: absolute; z-index: 1; right: 18px; bottom: 18px; color: var(--muted); font: 10px "Space Mono", monospace; text-transform: uppercase; }
-    .portrait-caption { display: flex; justify-content: space-between; gap: 16px; padding: 16px 4px 2px; color: var(--quiet); font: 11px "Space Mono", monospace; text-transform: uppercase; }
+    .about-grid { display: grid; max-width: 860px; gap: 70px; align-items: start; }
     .about-copy { color: var(--muted); font-size: 1.12rem; }
     .fact-list { display: grid; gap: 0; margin: 30px 0; border-top: 1px solid var(--line); }
     .fact { display: flex; gap: 18px; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--line); }
@@ -277,7 +269,6 @@
     <section class="wrap" id="about">
       <div class="section-heading reveal"><h2>Interfaces, shipped.</h2><p>A practical frontend maker with a bias toward visual clarity, responsive systems, and turning rough ideas into working experiences.</p></div>
       <div class="about-grid">
-        <div class="portrait reveal"><div class="portrait-mark" aria-label="Typography mark for Abhi Khatiwada"><span class="portrait-initial" aria-hidden="true">A/</span><span class="portrait-label">frontend / nepal</span></div><div class="portrait-caption"><span>Abhi Khatiwada</span><span>Nepal · worldwide</span></div></div>
         <div class="about-copy reveal">
           <p>My work starts with the interface: shaping a clear idea, building the visual system, and making every interaction feel intentional. AI/ML, full-stack development, cybersecurity, and open source are supporting capabilities that help me take a frontend idea further.</p>
           <div class="fact-list">
