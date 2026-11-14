@@ -94,7 +94,7 @@ function Header({ toggleTheme, onCommands }) {
   const links = ["about", "skills", "projects", "experience", "contact"];
   return <header className="topbar" id="navbar">
     <div className="wrap nav">
-      <a className="brand" href="#top" aria-label="Abhi Khatiwada home"><span className="brand-mark">A</span><span>abhi / khatiwada</span></a>
+      <a className="brand" href="#top" aria-label="Abhi Khatiwada home"><span className="brand-mark">A</span><span>Abhi Khatiwada</span></a>
       <nav className="nav-links" aria-label="Primary navigation">{links.map((link) => <a href={`#${link}`} key={link}>{link[0].toUpperCase() + link.slice(1)}</a>)}</nav>
       <div className="nav-actions"><Button className="icon-button" onClick={toggleTheme} aria-label="Toggle theme">◐</Button><Button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"}>☰</Button></div>
     </div>
