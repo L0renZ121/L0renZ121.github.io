@@ -57,6 +57,8 @@ function usePointerEffects() {
     let frame = 0;
     let x = -200;
     let y = -200;
+    let activeElement = null;
+    const interactiveSelector = "a, button, input, textarea, select, [role='button'], .project, .skill-group, .badge, .timeline-card, .hero-note, .skill-intro, form, .empty";
     const move = (event) => {
       x = event.clientX;
       y = event.clientY;
@@ -69,8 +71,17 @@ function usePointerEffects() {
       });
     };
     const scroll = () => document.documentElement.style.setProperty("--hero-parallax-y", `${Math.min(window.scrollY, 420) * -0.08}px`);
-    const over = (event) => event.target.closest("a, button, input, textarea")?.classList.add("pointer-hover");
-    const out = (event) => event.target.closest("a, button, input, textarea")?.classList.remove("pointer-hover");
+    const over = (event) => {
+      const nextElement = event.target.closest(interactiveSelector);
+      if (!nextElement || nextElement === activeElement || (activeElement && activeElement.contains(nextElement))) return;
+      activeElement = nextElement;
+      document.documentElement.classList.add("cursor-active");
+    };
+    const out = (event) => {
+      if (!activeElement || activeElement.contains(event.relatedTarget)) return;
+      activeElement = null;
+      document.documentElement.classList.remove("cursor-active");
+    };
     document.addEventListener("pointermove", move, { passive: true });
     document.addEventListener("scroll", scroll, { passive: true });
     document.addEventListener("pointerover", over);
@@ -81,6 +92,7 @@ function usePointerEffects() {
       document.removeEventListener("pointerover", over);
       document.removeEventListener("pointerout", out);
       cancelAnimationFrame(frame);
+      document.documentElement.classList.remove("cursor-active");
     };
   }, []);
 }
@@ -105,7 +117,12 @@ function Header({ toggleTheme, onCommands }) {
 function Hero() {
   const roles = ["Frontend Engineer", "Frontend Designer", "Interaction Builder", "Accessibility Advocate", "UI Problem Solver"];
   const [role, setRole] = useState(roles[0]);
-  useEffect(() => { const timer = setInterval(() => setRole((current) => roles[(roles.indexOf(current) + 1) % roles.length]), 2400); return () => clearInterval(timer); }, []);
+  useEffect(() => {
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    if (media.matches) return undefined;
+    const timer = setInterval(() => setRole((current) => roles[(roles.indexOf(current) + 1) % roles.length]), 3000);
+    return () => clearInterval(timer);
+  }, []);
   return <section className="wrap hero" id="top">
     <div className="hero-copy reveal"><div className="status">Open to collaborations</div><h1>Designing interfaces that make the <em>web feel clear.</em></h1><p className="hero-lede">I'm Abhi Khatiwada — a frontend engineer and designer from Nepal. I build responsive interfaces, visual systems, and thoughtful interactions, with AI, full-stack, and security skills supporting the work.</p><div className="actions"><a className="button primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a><a className="button secondary" href="/abhi.pdf" download>Download resume <span aria-hidden="true">↓</span></a></div></div>
     <div className="hero-orbit reveal" aria-label="Portfolio focus note"><div className="orbit-ring" aria-hidden="true"></div><div className="hero-note"><div className="note-line"><span>field note / 001</span><span>NP</span></div><strong>{role}</strong><p>Exploring the overlap between visual craft, accessible UI engineering, and the systems that make products reliable.</p><div className="note-line"><span>currently learning</span><span>RAG + cloud security</span></div></div></div>
@@ -166,11 +183,12 @@ function App() {
   const [notice, setNotice] = useState("");
   usePointerEffects();
   useEffect(() => {
+    document.documentElement.classList.add("motion-ready");
     const reveal = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("visible"); reveal.unobserve(entry.target); } }), { threshold: .12 });
     document.querySelectorAll(".reveal").forEach((element) => reveal.observe(element));
     const onKey = (event) => { if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) { event.preventDefault(); setCommandsOpen(true); } if (event.key === "Escape") { setCommandsOpen(false); setProject(null); } if (event.key.toLowerCase() === "t" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) toggleTheme(); };
     document.addEventListener("keydown", onKey);
-    return () => { reveal.disconnect(); document.removeEventListener("keydown", onKey); };
+    return () => { reveal.disconnect(); document.removeEventListener("keydown", onKey); document.documentElement.classList.remove("motion-ready"); };
   }, [toggleTheme]);
   useEffect(() => { if (!notice) return undefined; const timer = setTimeout(() => setNotice(""), 2600); return () => clearTimeout(timer); }, [notice]);
   return <><div className="pointer-spotlight" aria-hidden="true"></div><div className="cursor-ring" aria-hidden="true"></div><Header toggleTheme={toggleTheme} onCommands={() => setCommandsOpen(true)} /><main id="main"><Hero /><About /><Skills /><Projects onOpen={setProject} /><Experience /><Certifications /><section className="wrap" id="blog"><div className="empty reveal"><h3>Notes are in the lab.</h3><p>I'm working on articles about web development, security, and tech insights. Stay tuned!</p></div></section><Contact onToast={setNotice} /></main><footer><div className="wrap footer-row"><span>© {new Date().getFullYear()} Abhi Khatiwada</span><span className="mono">crafted with curiosity in Nepal</span><span className="mono">press / to navigate</span></div></footer><CommandPalette open={commandsOpen} onClose={() => setCommandsOpen(false)} toggleTheme={toggleTheme} onToast={setNotice} /><ProjectDialog project={project} onClose={() => setProject(null)} />{notice && <div className="toast show" role="status">{notice}</div>}</>;
