@@ -117,15 +117,24 @@ function Header({ toggleTheme, onCommands }) {
 function Hero() {
   const roles = ["Frontend Engineer", "Frontend Designer", "Interaction Builder", "Accessibility Advocate", "UI Problem Solver"];
   const [role, setRole] = useState(roles[0]);
+  const [roleChanging, setRoleChanging] = useState(false);
+  const previousRole = useRef(role);
   useEffect(() => {
     const media = matchMedia("(prefers-reduced-motion: reduce)");
     if (media.matches) return undefined;
     const timer = setInterval(() => setRole((current) => roles[(roles.indexOf(current) + 1) % roles.length]), 3000);
     return () => clearInterval(timer);
   }, []);
+  useEffect(() => {
+    if (previousRole.current === role || matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    previousRole.current = role;
+    setRoleChanging(true);
+    const timer = setTimeout(() => setRoleChanging(false), 420);
+    return () => clearTimeout(timer);
+  }, [role]);
   return <section className="wrap hero" id="top">
     <div className="hero-copy reveal"><div className="status">Open to collaborations</div><h1>Designing interfaces that make the <em>web feel clear.</em></h1><p className="hero-lede">I'm Abhi Khatiwada — a frontend engineer and designer from Nepal. I build responsive interfaces, visual systems, and thoughtful interactions, with AI, full-stack, and security skills supporting the work.</p><div className="actions"><a className="button primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a><a className="button secondary" href="/abhi.pdf" download>Download resume <span aria-hidden="true">↓</span></a></div></div>
-    <div className="hero-orbit reveal" aria-label="Portfolio focus note"><div className="orbit-ring" aria-hidden="true"></div><div className="hero-note"><div className="note-line"><span>field note / 001</span><span>NP</span></div><strong>{role}</strong><p>Exploring the overlap between visual craft, accessible UI engineering, and the systems that make products reliable.</p><div className="note-line"><span>currently learning</span><span>RAG + cloud security</span></div></div></div>
+    <div className="hero-orbit reveal" aria-label="Portfolio focus note"><div className="orbit-ring" aria-hidden="true"></div><div className="hero-note"><div className="note-line"><span>field note / 001</span><span>NP</span></div><strong className={`role-text${roleChanging ? " is-changing" : ""}`} data-text={role}>{role}</strong><p>Exploring the overlap between visual craft, accessible UI engineering, and the systems that make products reliable.</p><div className="note-line"><span>currently learning</span><span>RAG + cloud security</span></div></div></div>
   </section>;
 }
 
