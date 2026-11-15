@@ -138,7 +138,44 @@ function Skills() {
 }
 
 function ProjectCard({ project, onOpen }) {
-  return <article className="project reveal" data-category={project.category}><div className="project-visual"><span className="project-emoji">{project.emoji}</span><span className="project-type">{project.type}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-footer"><span className="project-tech">{project.tech}</span><Button className="project-link" onClick={() => onOpen(project)}>Inspect →</Button></div></article>;
+  const cardRef = useRef(null);
+  const boundsRef = useRef(null);
+  const frameRef = useRef(0);
+  const pendingPointRef = useRef(null);
+  const captureBounds = (event) => {
+    if (event.pointerType === "mouse") boundsRef.current = cardRef.current?.getBoundingClientRect();
+  };
+  const onPointerMove = (event) => {
+    if (event.pointerType !== "mouse" || !matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) return;
+    const card = cardRef.current;
+    const bounds = boundsRef.current;
+    if (!card || !bounds) return;
+    pendingPointRef.current = [event.clientX, event.clientY];
+    if (frameRef.current) return;
+    frameRef.current = requestAnimationFrame(() => {
+      const [clientX, clientY] = pendingPointRef.current || [];
+      const x = (clientX - bounds.left) / bounds.width - 0.5;
+      const y = (clientY - bounds.top) / bounds.height - 0.5;
+      card.style.setProperty("--tilt-x", `${(x * 7).toFixed(2)}deg`);
+      card.style.setProperty("--tilt-y", `${(-y * 7).toFixed(2)}deg`);
+      card.style.setProperty("--glow-x", `${((x + 0.5) * 100).toFixed(1)}%`);
+      card.style.setProperty("--glow-y", `${((y + 0.5) * 100).toFixed(1)}%`);
+      frameRef.current = 0;
+    });
+  };
+  const resetPointer = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    if (frameRef.current) cancelAnimationFrame(frameRef.current);
+    frameRef.current = 0;
+    boundsRef.current = null;
+    pendingPointRef.current = null;
+    card.style.removeProperty("--tilt-x");
+    card.style.removeProperty("--tilt-y");
+    card.style.removeProperty("--glow-x");
+    card.style.removeProperty("--glow-y");
+  };
+  return <article ref={cardRef} className="project reveal" data-category={project.category} onPointerEnter={captureBounds} onPointerMove={onPointerMove} onPointerLeave={resetPointer}><div className="project-visual"><span className="project-emoji">{project.emoji}</span><span className="project-type">{project.type}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-footer"><span className="project-tech">{project.tech}</span><Button className="project-link" onClick={() => onOpen(project)}>Inspect →</Button></div></article>;
 }
 
 function Projects({ onOpen }) {
